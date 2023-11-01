@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace RoadService.Classes
 {
     [Table("Resources")]
-    public abstract class Resource
+    public class Resource
     {
         [Key]
         public int Id { get; set; }

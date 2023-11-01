@@ -21,9 +21,9 @@ namespace RoadService.Classes
         public decimal ActualPrice { get; set; }
         [ForeignKey("EmployeeId")]
         public List<Employee> Employees { get; set; }
-        [ForeignKey("ResourceId")]
+        [ForeignKey("PlannedResourceId")]
         public List<Resource> PlannedResources { get; set; }
-        [ForeignKey("ResourceId")]
+        [ForeignKey("ActualResourcesId")]
         public List<Resource> ActualResources { get; set; }
 
     }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RoadService;
 
@@ -10,9 +11,11 @@ using RoadService;
 namespace RoadService.Migrations
 {
     [DbContext(typeof(RoadServiceDBContext))]
-    partial class RoadServiceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231101161307_UpdateResourceTable")]
+    partial class UpdateResourceTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -38,9 +41,6 @@ namespace RoadService.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("EmployeeId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -57,8 +57,6 @@ namespace RoadService.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EmployeeId");
 
                     b.ToTable("Employees");
                 });
@@ -91,9 +89,6 @@ namespace RoadService.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ActualResourcesId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -106,17 +101,10 @@ namespace RoadService.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("PlannedResourceId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ActualResourcesId");
-
-                    b.HasIndex("PlannedResourceId");
 
                     b.ToTable("Resources");
 
@@ -145,41 +133,6 @@ namespace RoadService.Migrations
                     b.HasIndex("ResourceId");
 
                     b.ToTable("ResourceTimeTableItems");
-                });
-
-            modelBuilder.Entity("RoadService.Classes.Task", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("ActualPrice")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("PlannedPrice")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("TimeEnd")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("TimeStart")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("RoadService.Classes.User", b =>
@@ -263,13 +216,6 @@ namespace RoadService.Migrations
                     b.HasDiscriminator().HasValue("Transport");
                 });
 
-            modelBuilder.Entity("RoadService.Classes.Employee", b =>
-                {
-                    b.HasOne("RoadService.Classes.Task", null)
-                        .WithMany("Employees")
-                        .HasForeignKey("EmployeeId");
-                });
-
             modelBuilder.Entity("RoadService.Classes.EmployeeTimeTableItem", b =>
                 {
                     b.HasOne("RoadService.Classes.Employee", "Employee")
@@ -279,17 +225,6 @@ namespace RoadService.Migrations
                         .IsRequired();
 
                     b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("RoadService.Classes.Resource", b =>
-                {
-                    b.HasOne("RoadService.Classes.Task", null)
-                        .WithMany("ActualResources")
-                        .HasForeignKey("ActualResourcesId");
-
-                    b.HasOne("RoadService.Classes.Task", null)
-                        .WithMany("PlannedResources")
-                        .HasForeignKey("PlannedResourceId");
                 });
 
             modelBuilder.Entity("RoadService.Classes.ResourceTimeTableItem", b =>
@@ -312,15 +247,6 @@ namespace RoadService.Migrations
                         .IsRequired();
 
                     b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("RoadService.Classes.Task", b =>
-                {
-                    b.Navigation("ActualResources");
-
-                    b.Navigation("Employees");
-
-                    b.Navigation("PlannedResources");
                 });
 #pragma warning restore 612, 618
         }
