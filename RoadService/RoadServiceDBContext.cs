@@ -22,7 +22,7 @@ namespace RoadService
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=road_service.db");
+            optionsBuilder.UseSqlite("Filename=E:/RoadService/RoadService/road_service.db");
         }
 
     }
