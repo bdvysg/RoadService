@@ -19,7 +19,6 @@ namespace RoadService
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Test();
             string a = "";
             foreach (var item in unitOfWork.Address.GetAll().ToList())
             {
