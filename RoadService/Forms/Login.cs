@@ -34,7 +34,7 @@ namespace RoadService
 
             if (users.Any(u => u.Username == textBox1.Text.Trim() && u.Password == textBox2.Text.Trim()))
             {
-                Form1 form = new Form1();
+                Main form = new Main();
                 form.Show();
                 this.Hide();
             }

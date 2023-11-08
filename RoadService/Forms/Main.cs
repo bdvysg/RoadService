@@ -5,12 +5,12 @@ using RoadService.Repository;
 
 namespace RoadService
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         RoadServiceDBContext dbContext;
         UnitOfWork unitOfWork;
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             dbContext = new RoadServiceDBContext();
