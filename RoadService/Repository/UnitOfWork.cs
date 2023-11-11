@@ -16,7 +16,7 @@ namespace RoadService.Repository
         public Repository<Employee> Employee { get; private set; }
         public Repository<EmployeeTimeTableItem> EmployeeTimeTableItem { get; private set; }
         public Repository<Resource> Resource { get; private set; }
-        public Repository<EmployeeTimeTableItem> ResourceTimeTableItem { get; private set; }
+        public Repository<ResourceTimeTableItem> ResourceTimeTableItem { get; private set; }
         public Repository<Classes.Task> Task { get; private set; }
 
 
@@ -31,7 +31,7 @@ namespace RoadService.Repository
             EmployeeTimeTableItem = new Repository<EmployeeTimeTableItem>(dbContext);
             Resource = new Repository<Resource>(dbContext);
             Users = new Repository<User>(dbContext);
-            ResourceTimeTableItem = new Repository<EmployeeTimeTableItem>(dbContext);
+            ResourceTimeTableItem = new Repository<ResourceTimeTableItem>(dbContext);
             Task = new Repository<Classes.Task>(dbContext);
 
         }

@@ -1,6 +1,7 @@
 
 
 using RoadService.Classes;
+using RoadService.Forms;
 using RoadService.Repository;
 
 namespace RoadService
@@ -17,24 +18,18 @@ namespace RoadService
             unitOfWork = new UnitOfWork(dbContext);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ‰Ó‰‡ÚËÕÓ‚Â«‡‚‰‡ÌÌˇToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string a = "";
-            foreach (var item in unitOfWork.Address.GetAll().ToList())
-            {
-                a += item.Name + "\n";
-            }
-            label1.Text = a;
+            CreateTask form = new CreateTask();
+            form.Show();
+            this.Hide();
         }
 
-        private void Test()
+        private void ‰Ó‰‡ÚËƒ‡Ì≥ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var item in unitOfWork.Address.GetAll().ToList())
-            {
-                item.Name = item.Name + " updated";
-                unitOfWork.Address.Update(item);
-            }
-            unitOfWork.Save();
+            InsertData form = new InsertData();
+            form.Show();
+            this.Hide();
         }
     }
 }

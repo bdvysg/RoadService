@@ -28,45 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            label1 = new Label();
+            panel1 = new Panel();
+            dataGridView1 = new DataGridView();
+            menuStrip1 = new MenuStrip();
+            додатиНовеЗавданняToolStripMenuItem = new ToolStripMenuItem();
+            додатиДаніToolStripMenuItem = new ToolStripMenuItem();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // panel1
             // 
-            button1.Location = new Point(469, 250);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(menuStrip1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(800, 450);
+            panel1.TabIndex = 0;
             // 
-            // label1
+            // dataGridView1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(409, 136);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 24);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(800, 426);
+            dataGridView1.TabIndex = 0;
             // 
-            // Form1
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { додатиНовеЗавданняToolStripMenuItem, додатиДаніToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 1;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // додатиНовеЗавданняToolStripMenuItem
+            // 
+            додатиНовеЗавданняToolStripMenuItem.Name = "додатиНовеЗавданняToolStripMenuItem";
+            додатиНовеЗавданняToolStripMenuItem.Size = new Size(139, 20);
+            додатиНовеЗавданняToolStripMenuItem.Text = "Додати нове завдання";
+            додатиНовеЗавданняToolStripMenuItem.Click += додатиНовеЗавданняToolStripMenuItem_Click;
+            // 
+            // додатиДаніToolStripMenuItem
+            // 
+            додатиДаніToolStripMenuItem.Name = "додатиДаніToolStripMenuItem";
+            додатиДаніToolStripMenuItem.Size = new Size(83, 20);
+            додатиДаніToolStripMenuItem.Text = "Додати дані";
+            додатиДаніToolStripMenuItem.Click += додатиДаніToolStripMenuItem_Click;
+            // 
+            // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label1);
-            Controls.Add(button1);
-            Name = "Form1";
+            Controls.Add(panel1);
+            MainMenuStrip = menuStrip1;
+            Name = "Main";
             Text = "Form1";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Label label1;
+        private Panel panel1;
+        private DataGridView dataGridView1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem додатиНовеЗавданняToolStripMenuItem;
+        private ToolStripMenuItem додатиДаніToolStripMenuItem;
     }
 }

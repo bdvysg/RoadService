@@ -60,6 +60,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 2;
+            textBox1.Text = "manager1";
             // 
             // label2
             // 
@@ -77,6 +78,7 @@
             textBox2.PasswordChar = '*';
             textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 4;
+            textBox2.Text = "temp1212";
             // 
             // Login
             // 

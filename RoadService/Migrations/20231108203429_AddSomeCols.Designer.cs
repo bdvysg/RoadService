@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RoadService;
 
@@ -10,9 +11,11 @@ using RoadService;
 namespace RoadService.Migrations
 {
     [DbContext(typeof(RoadServiceDBContext))]
-    partial class RoadServiceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231108203429_AddSomeCols")]
+    partial class AddSomeCols
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -241,6 +244,9 @@ namespace RoadService.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -253,6 +259,9 @@ namespace RoadService.Migrations
             modelBuilder.Entity("RoadService.Classes.Transport", b =>
                 {
                     b.HasBaseType("RoadService.Classes.Resource");
+
+                    b.Property<DateTime>("LastMaintenanceDate")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LicensePlate")
                         .IsRequired()
