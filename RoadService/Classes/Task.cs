@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace RoadService.Classes
         public List<Resource> PlannedResources { get; set; }
         [ForeignKey("ActualResourcesId")]
         public List<Resource> ActualResources { get; set; }
+        [DefaultValue(false)]
+        public bool isClosed { get; set; }
+        public string Status { get; set; }
 
         /*
         string address;

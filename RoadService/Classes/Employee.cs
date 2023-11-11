@@ -16,6 +16,11 @@ namespace RoadService.Classes
         public string Position { get; set; } 
         public DateTime HireDate { get; set; }
         public decimal WagePerHour { get; set; }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 
 }

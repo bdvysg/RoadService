@@ -10,6 +10,5 @@ namespace RoadService.Classes
     {
         public string VehicleType { get; set; } 
         public string LicensePlate { get; set; } 
-        public DateTime LastMaintenanceDate { get; set; } 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoadService.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,12 @@ namespace RoadService.Classes
     public class ResourceTimeTable
     {
         private readonly List<ResourceTimeTableItem> _items;
+        private UnitOfWork _unitOfWork;
 
-        public ResourceTimeTable()
+        public ResourceTimeTable(UnitOfWork unitOfWork)
         {
-            // обращение к бд
+            _items = unitOfWork.ResourceTimeTableItem.GetAll().ToList();
+            _unitOfWork = unitOfWork;
         }
 
         public List<Resource> GetResources(DateTime timeStart, DateTime timeEnd)
@@ -24,11 +27,22 @@ namespace RoadService.Classes
 
         public void ReserveResource(Resource resource, DateTime timeStart, DateTime timeEnd)
         {
-            // добавление ResourceTimeTableItem в бд
+            var res = new ResourceTimeTableItem();
+            res.Resource = resource;
+            res.TimeStart = timeStart;
+            res.TimeEnd = timeEnd;
+            _unitOfWork.ResourceTimeTableItem.Add(res);
+            _unitOfWork.Save();
+            
         }
         public void UnReserveResource(Resource resource, DateTime timeStart, DateTime timeEnd)
         {
-            // удаление ResourceTimeTableItem в бд
+            var res = new ResourceTimeTableItem();
+            res.Resource = resource;
+            res.TimeStart = timeStart;
+            res.TimeEnd = timeEnd;
+            _unitOfWork.ResourceTimeTableItem.Remove(res);
+            _unitOfWork.Save();
         }
     }
 }

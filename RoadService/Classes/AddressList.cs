@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoadService.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,19 @@ namespace RoadService.Classes
     {
         private readonly List<Address> _addresses;
 
-        public AddressList() 
+        public AddressList(UnitOfWork unitOfWork) 
         {
-            // получить список адресов из бд
+            _addresses = unitOfWork.Address.GetAll().ToList();
+        }
+
+        public void Add(Address address)
+        {
+            _addresses.Add(address);
+        }
+
+        public void Remove(Address address)
+        {
+            _addresses.Remove(address);
         }
 
         public bool IsValidAddress(string address)
@@ -21,6 +32,23 @@ namespace RoadService.Classes
 
             return _addresses.Any(u => u.Name.Contains(address));
 
+        }
+
+        public bool IsValidAddress1(string address)
+        {
+            if (string.IsNullOrEmpty(address)) { return false; }
+
+            bool isValid = false;
+
+            for (int i = 0; i < _addresses.Count; i++)
+            {
+                if (_addresses[i].Name.Contains(address))
+                {
+                    isValid = true;
+                }
+            }
+
+            return isValid;
         }
 
     }

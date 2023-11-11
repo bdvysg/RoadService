@@ -10,6 +10,5 @@ namespace RoadService.Classes
     {
         public string Type { get; set; } 
         public string Manufacturer { get; set; } 
-        public DateTime PurchaseDate { get; set; } 
     }
 }

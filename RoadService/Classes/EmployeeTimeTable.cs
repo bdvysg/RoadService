@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoadService.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,12 @@ namespace RoadService.Classes
     public class EmployeeTimeTable
     {
         private readonly List<EmployeeTimeTableItem> _items;
+        private UnitOfWork _unitOfWork;
 
-        public EmployeeTimeTable()
+        public EmployeeTimeTable(UnitOfWork unitOfWork)
         {
-            // обращение к бд
+            _items = unitOfWork.EmployeeTimeTableItem.GetAll().ToList();
+            _unitOfWork = unitOfWork;
         }
 
         public List<Employee> GetEmployees(DateTime timeStart, DateTime timeEnd)
@@ -24,12 +27,22 @@ namespace RoadService.Classes
 
         public void ReserveEmployee(Employee employee, DateTime timeStart, DateTime timeEnd)
         {
-            // добавление EmployeeTimeTableItem в бд
+            var emp = new EmployeeTimeTableItem();
+            emp.Employee = employee;
+            emp.TimeStart = timeStart;
+            emp.TimeEnd = timeEnd;
+            _unitOfWork.EmployeeTimeTableItem.Add(emp);
+            _unitOfWork.Save();
         }
 
         public void UnReserveEmployee(Employee employee, DateTime timeStart, DateTime timeEnd)
         {
-            // удаление EmployeeTimeTableItem в бд
+            var emp = new EmployeeTimeTableItem();
+            emp.Employee = employee;
+            emp.TimeStart = timeStart;
+            emp.TimeEnd = timeEnd;
+            _unitOfWork.EmployeeTimeTableItem.Remove(emp);
+            _unitOfWork.Save();
         }
     }
 }
