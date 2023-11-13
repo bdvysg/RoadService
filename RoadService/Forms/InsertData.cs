@@ -22,6 +22,7 @@ namespace RoadService.Forms
         private Task task;
         private List<Employee> employees;
         private List<Resource> resources;
+        private List<Stock> stocks;
 
         public InsertData()
         {
@@ -63,8 +64,18 @@ namespace RoadService.Forms
         public void LoadResources()
         {
             resources = unitOfWork.Resource.GetAll().ToList();
+            stocks = unitOfWork.Stock.GetAll(includeProperties: "Resource").ToList();
 
             comboBox3.Items.AddRange(resources.ToArray());
+            comboBox4.Items.AddRange(resources.ToArray());
+
+            dataGridView4.DataSource = stocks;
+            dataGridView4.Columns[0].Visible = false;
+            dataGridView4.Columns[1].Visible = false;
+            dataGridView4.Columns[2].HeaderText = "Ресурс";
+            dataGridView4.Columns[3].HeaderText = "Кількість";
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -221,6 +232,63 @@ namespace RoadService.Forms
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            int num = 0;
+
+            if (int.TryParse(textBox4.Text, out num))
+            {
+                if (unitOfWork.Stock.GetAll().Select(u => u.ResourceId).Contains((comboBox4.SelectedItem as Resource).Id))
+                {
+                    Stock item = unitOfWork.Stock.GetAll().First(u => u.ResourceId == (comboBox4.SelectedItem as Resource).Id);
+                    item.Count += num;
+                    unitOfWork.Stock.Update(item);
+                }
+                else
+                {
+                    unitOfWork.Stock.Add(new Stock
+                    {
+                        Id = 0,
+                        ResourceId = (comboBox4.SelectedItem as Resource).Id,
+                        Resource = comboBox4.SelectedItem as Resource,
+                        Count = num
+                    });
+                }
+                unitOfWork.Save();
+            }
+
+            LoadResources();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            int num = 0;
+
+            if (int.TryParse(textBox4.Text, out num))
+            {
+                if (unitOfWork.Stock.GetAll().Select(u => u.ResourceId).Contains((comboBox4.SelectedItem as Resource).Id))
+                {
+                    Stock item = unitOfWork.Stock.GetAll().First(u => u.ResourceId == (comboBox4.SelectedItem as Resource).Id);
+                    item.Count -= num;
+                    if (item.Count <= 0) 
+                    {
+                        MessageBox.Show("Кількість не може бути менше нуля");
+                        return;
+                    }
+                    unitOfWork.Stock.Update(item);
+                    unitOfWork.Save();
+                }
+                else
+                {
+                    MessageBox.Show("Даного ресурсу не знайдено");
+                    return;
+                }
+                
+            }
+
+            LoadResources();
         }
     }
 }

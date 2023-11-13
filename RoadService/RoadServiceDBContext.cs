@@ -28,7 +28,6 @@ namespace RoadService
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Stock>().HasNoKey();
             base.OnModelCreating(modelBuilder);
         }
 
