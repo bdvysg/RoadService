@@ -31,7 +31,6 @@
             label1 = new Label();
             label2 = new Label();
             textBox1 = new TextBox();
-            textBox2 = new TextBox();
             label3 = new Label();
             textBox3 = new TextBox();
             label4 = new Label();
@@ -48,6 +47,11 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            textBox4 = new TextBox();
+            label9 = new Label();
+            richTextBox1 = new RichTextBox();
+            button6 = new Button();
+            label10 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -74,13 +78,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(107, 117);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 4;
             // 
             // label3
             // 
@@ -110,7 +107,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(51, 236);
+            label5.Location = new Point(51, 305);
             label5.Name = "label5";
             label5.Size = new Size(72, 15);
             label5.TabIndex = 7;
@@ -118,16 +115,18 @@
             // 
             // comboBox1
             // 
+            comboBox1.Enabled = false;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(129, 233);
+            comboBox1.Location = new Point(129, 302);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 8;
             // 
             // comboBox2
             // 
+            comboBox2.Enabled = false;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(129, 275);
+            comboBox2.Location = new Point(129, 344);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(121, 23);
             comboBox2.TabIndex = 10;
@@ -135,7 +134,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(51, 278);
+            label6.Location = new Point(51, 347);
             label6.Name = "label6";
             label6.Size = new Size(52, 15);
             label6.TabIndex = 9;
@@ -144,7 +143,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(53, 154);
+            label7.Location = new Point(53, 223);
             label7.Name = "label7";
             label7.Size = new Size(79, 15);
             label7.TabIndex = 11;
@@ -152,14 +151,16 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(138, 148);
+            dateTimePicker1.Enabled = false;
+            dateTimePicker1.Location = new Point(138, 217);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 12;
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(456, 146);
+            dateTimePicker2.Enabled = false;
+            dateTimePicker2.Location = new Point(138, 246);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
             dateTimePicker2.TabIndex = 14;
@@ -167,7 +168,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(371, 152);
+            label8.Location = new Point(53, 252);
             label8.Name = "label8";
             label8.Size = new Size(64, 15);
             label8.TabIndex = 13;
@@ -185,34 +186,41 @@
             // 
             // button2
             // 
-            button2.Location = new Point(371, 366);
+            button2.Enabled = false;
+            button2.Location = new Point(362, 425);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 16;
             button2.Text = "Створити";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(263, 232);
+            button3.Enabled = false;
+            button3.Location = new Point(263, 301);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 17;
             button3.Text = "Додати";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(263, 275);
+            button4.Enabled = false;
+            button4.Location = new Point(263, 358);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 18;
             button4.Text = "Додати";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(331, 191);
+            button5.Enabled = false;
+            button5.Location = new Point(362, 232);
             button5.Name = "button5";
             button5.Size = new Size(168, 23);
             button5.TabIndex = 19;
@@ -220,11 +228,63 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // textBox4
+            // 
+            textBox4.Enabled = false;
+            textBox4.Location = new Point(129, 373);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(121, 23);
+            textBox4.TabIndex = 20;
+            textBox4.Text = "1";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(51, 376);
+            label9.Name = "label9";
+            label9.Size = new Size(56, 15);
+            label9.TabIndex = 21;
+            label9.Text = "Кількість";
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Enabled = false;
+            richTextBox1.Location = new Point(107, 120);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(344, 82);
+            richTextBox1.TabIndex = 22;
+            richTextBox1.Text = "";
+            // 
+            // button6
+            // 
+            button6.Enabled = false;
+            button6.Location = new Point(411, 328);
+            button6.Name = "button6";
+            button6.Size = new Size(104, 23);
+            button6.TabIndex = 23;
+            button6.Text = "Обчислити ціну";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(521, 332);
+            label10.Name = "label10";
+            label10.Size = new Size(95, 15);
+            label10.TabIndex = 24;
+            label10.Text = "Приблизна ціна";
+            // 
             // CreateTask
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(817, 460);
+            Controls.Add(label10);
+            Controls.Add(button6);
+            Controls.Add(richTextBox1);
+            Controls.Add(label9);
+            Controls.Add(textBox4);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -240,7 +300,6 @@
             Controls.Add(label5);
             Controls.Add(textBox3);
             Controls.Add(label4);
-            Controls.Add(textBox2);
             Controls.Add(label3);
             Controls.Add(textBox1);
             Controls.Add(label2);
@@ -256,7 +315,6 @@
         private Label label1;
         private Label label2;
         private TextBox textBox1;
-        private TextBox textBox2;
         private Label label3;
         private TextBox textBox3;
         private Label label4;
@@ -273,5 +331,10 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private TextBox textBox4;
+        private Label label9;
+        private RichTextBox richTextBox1;
+        private Button button6;
+        private Label label10;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -20,15 +21,36 @@ namespace RoadService.Classes
         public string Address { get; set; }
         public decimal PlannedPrice { get; set; }
         public decimal ActualPrice { get; set; }
-        [ForeignKey("EmployeeId")]
+        [NotMapped]
         public List<Employee> Employees { get; set; }
-        [ForeignKey("PlannedResourceId")]
+        [NotMapped]
         public List<Resource> PlannedResources { get; set; }
-        [ForeignKey("ActualResourcesId")]
+        [NotMapped]
         public List<Resource> ActualResources { get; set; }
         [DefaultValue(false)]
         public bool isClosed { get; set; }
         public string Status { get; set; }
+
+        [Column("Employees")]
+        public string EmployeesSerialized
+        {
+            get { return JsonConvert.SerializeObject(Employees); }
+            set { Employees = JsonConvert.DeserializeObject<List<Employee>>(value); }
+        }
+
+        [Column("PlannedResources")]
+        public string PlannedResourcesSerialized
+        {
+            get { return JsonConvert.SerializeObject(PlannedResources); }
+            set { PlannedResources = JsonConvert.DeserializeObject<List<Resource>>(value); }
+        }
+
+        [Column("ActualResources")]
+        public string ActualResourcesSerialized
+        {
+            get { return JsonConvert.SerializeObject(ActualResources); }
+            set { ActualResources = JsonConvert.DeserializeObject<List<Resource>>(value); }
+        }
 
         /*
         string address;
@@ -78,6 +100,6 @@ namespace RoadService.Classes
         {
             resTT.ReserveResorce(res, date);
         }
-        */ 
+        */
     }
 }

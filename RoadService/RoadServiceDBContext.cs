@@ -14,6 +14,7 @@ namespace RoadService
         public DbSet<Resource> Resources { get; set; }
         public DbSet<Tool> Tools { get; set; } 
         public DbSet<Transport> Transports { get; set; } 
+        public DbSet<Stock> Stocks { get; set; }
         public DbSet<Material> Materials { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<EmployeeTimeTableItem> EmployeeTimeTableItems { get; set; }
@@ -23,6 +24,12 @@ namespace RoadService
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Filename=E:/RoadService/RoadService/road_service.db");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Stock>().HasNoKey();
+            base.OnModelCreating(modelBuilder);
         }
 
     }

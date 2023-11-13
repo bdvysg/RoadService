@@ -20,9 +20,11 @@ namespace RoadService.Classes
 
         public List<Employee> GetEmployees(DateTime timeStart, DateTime timeEnd)
         {
-            List<Employee> employees = _items.Where(u=> u.TimeStart >= timeStart && u.TimeEnd < timeEnd)
-                                             .Select(u => u.Employee).ToList();
-            return employees;
+            var busyWorkerIds = _items.Where(s => (s.TimeStart <= timeEnd && s.TimeEnd >= timeStart)).Select(s => s.EmployeeId).ToList();
+
+            var availableWorkers = _unitOfWork.Employee.GetAll().Where(u => u.Position == "Дорожній працівник").Where(w => !busyWorkerIds.Contains(w.Id)).ToList();
+
+            return availableWorkers;
         }
 
         public void ReserveEmployee(Employee employee, DateTime timeStart, DateTime timeEnd)

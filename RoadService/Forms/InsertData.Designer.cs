@@ -42,6 +42,8 @@
             label7 = new Label();
             label1 = new Label();
             tabPage3 = new TabPage();
+            textBox16 = new TextBox();
+            label29 = new Label();
             dataGridView3 = new DataGridView();
             button10 = new Button();
             button11 = new Button();
@@ -58,8 +60,6 @@
             button9 = new Button();
             textBox11 = new TextBox();
             label19 = new Label();
-            textBox12 = new TextBox();
-            label20 = new Label();
             textBox13 = new TextBox();
             label21 = new Label();
             textBox14 = new TextBox();
@@ -71,8 +71,6 @@
             button8 = new Button();
             textBox6 = new TextBox();
             label13 = new Label();
-            textBox7 = new TextBox();
-            label14 = new Label();
             textBox8 = new TextBox();
             label15 = new Label();
             textBox9 = new TextBox();
@@ -87,8 +85,6 @@
             button5 = new Button();
             textBox5 = new TextBox();
             label12 = new Label();
-            textBox4 = new TextBox();
-            label11 = new Label();
             textBox3 = new TextBox();
             label10 = new Label();
             textBox2 = new TextBox();
@@ -245,6 +241,8 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(textBox16);
+            tabPage3.Controls.Add(label29);
             tabPage3.Controls.Add(dataGridView3);
             tabPage3.Controls.Add(button10);
             tabPage3.Controls.Add(button11);
@@ -263,6 +261,22 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "ResTT";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // textBox16
+            // 
+            textBox16.Location = new Point(376, 126);
+            textBox16.Name = "textBox16";
+            textBox16.Size = new Size(100, 23);
+            textBox16.TabIndex = 34;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(301, 129);
+            label29.Name = "label29";
+            label29.Size = new Size(56, 15);
+            label29.TabIndex = 33;
+            label29.Text = "Кількість";
             // 
             // dataGridView3
             // 
@@ -364,8 +378,6 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(pnlTransport);
-            tabPage2.Controls.Add(pnlTools);
             tabPage2.Controls.Add(button7);
             tabPage2.Controls.Add(button6);
             tabPage2.Controls.Add(label3);
@@ -374,6 +386,8 @@
             tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(comboBox2);
             tabPage2.Controls.Add(dataGridView2);
+            tabPage2.Controls.Add(pnlTransport);
+            tabPage2.Controls.Add(pnlTools);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -387,8 +401,6 @@
             pnlTransport.Controls.Add(button9);
             pnlTransport.Controls.Add(textBox11);
             pnlTransport.Controls.Add(label19);
-            pnlTransport.Controls.Add(textBox12);
-            pnlTransport.Controls.Add(label20);
             pnlTransport.Controls.Add(textBox13);
             pnlTransport.Controls.Add(label21);
             pnlTransport.Controls.Add(textBox14);
@@ -414,7 +426,7 @@
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(237, 213);
+            textBox11.Location = new Point(237, 190);
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(100, 23);
             textBox11.TabIndex = 10;
@@ -422,27 +434,11 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(147, 216);
+            label19.Location = new Point(147, 193);
             label19.Name = "label19";
             label19.Size = new Size(78, 15);
             label19.TabIndex = 9;
             label19.Text = "Номер знаку";
-            // 
-            // textBox12
-            // 
-            textBox12.Location = new Point(237, 187);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(100, 23);
-            textBox12.TabIndex = 8;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(147, 187);
-            label20.Name = "label20";
-            label20.Size = new Size(27, 15);
-            label20.TabIndex = 7;
-            label20.Text = "Тип";
             // 
             // textBox13
             // 
@@ -506,8 +502,6 @@
             pnlTools.Controls.Add(button8);
             pnlTools.Controls.Add(textBox6);
             pnlTools.Controls.Add(label13);
-            pnlTools.Controls.Add(textBox7);
-            pnlTools.Controls.Add(label14);
             pnlTools.Controls.Add(textBox8);
             pnlTools.Controls.Add(label15);
             pnlTools.Controls.Add(textBox9);
@@ -533,35 +527,20 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(218, 213);
+            textBox6.Location = new Point(218, 193);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(100, 23);
             textBox6.TabIndex = 10;
+            textBox6.TextChanged += textBox6_TextChanged;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(147, 216);
+            label13.Location = new Point(147, 196);
             label13.Name = "label13";
             label13.Size = new Size(62, 15);
             label13.TabIndex = 9;
             label13.Text = "Виробник";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(218, 187);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 8;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(147, 187);
-            label14.Name = "label14";
-            label14.Size = new Size(27, 15);
-            label14.TabIndex = 7;
-            label14.Text = "Тип";
             // 
             // textBox8
             // 
@@ -654,8 +633,6 @@
             pnlMaterial.Controls.Add(button5);
             pnlMaterial.Controls.Add(textBox5);
             pnlMaterial.Controls.Add(label12);
-            pnlMaterial.Controls.Add(textBox4);
-            pnlMaterial.Controls.Add(label11);
             pnlMaterial.Controls.Add(textBox3);
             pnlMaterial.Controls.Add(label10);
             pnlMaterial.Controls.Add(textBox2);
@@ -680,7 +657,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(247, 213);
+            textBox5.Location = new Point(247, 196);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(100, 23);
             textBox5.TabIndex = 10;
@@ -688,27 +665,11 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(147, 216);
+            label12.Location = new Point(147, 199);
             label12.Name = "label12";
             label12.Size = new Size(94, 15);
             label12.TabIndex = 9;
             label12.Text = "Одиниці виміру";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(247, 187);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 8;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(147, 187);
-            label11.Name = "label11";
-            label11.Size = new Size(27, 15);
-            label11.TabIndex = 7;
-            label11.Text = "Тип";
             // 
             // textBox3
             // 
@@ -862,8 +823,6 @@
         private Label label10;
         private TextBox textBox5;
         private Label label12;
-        private TextBox textBox4;
-        private Label label11;
         private Button button7;
         private Button button6;
         private Label label3;
@@ -872,8 +831,6 @@
         private Button button8;
         private TextBox textBox6;
         private Label label13;
-        private TextBox textBox7;
-        private Label label14;
         private TextBox textBox8;
         private Label label15;
         private TextBox textBox9;
@@ -885,8 +842,6 @@
         private Button button9;
         private TextBox textBox11;
         private Label label19;
-        private TextBox textBox12;
-        private Label label20;
         private TextBox textBox13;
         private Label label21;
         private TextBox textBox14;
@@ -906,5 +861,7 @@
         private DateTimePicker dateTimePicker4;
         private Label label26;
         private Label label27;
+        private TextBox textBox16;
+        private Label label29;
     }
 }

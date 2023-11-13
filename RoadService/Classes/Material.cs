@@ -8,7 +8,6 @@ namespace RoadService.Classes
 {
     public class Material : Resource
     {
-        public string MaterialType { get; set; } 
         public string UnitOfMeasure { get; set; } 
     }
 }

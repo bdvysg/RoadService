@@ -96,7 +96,6 @@ namespace RoadService.Forms
             material.Name = textBox1.Text;
             material.Description = textBox2.Text;
             material.Price = decimal.Parse(textBox3.Text);
-            material.MaterialType = textBox4.Text;
             material.UnitOfMeasure = textBox5.Text;
 
             unitOfWork.Resource.Add(material);
@@ -105,7 +104,6 @@ namespace RoadService.Forms
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
-            textBox4.Clear();
             textBox5.Clear();
         }
 
@@ -160,7 +158,6 @@ namespace RoadService.Forms
             tool.Name = textBox10.Text;
             tool.Description = textBox9.Text;
             tool.Price = decimal.Parse(textBox8.Text);
-            tool.Type = textBox7.Text;
             tool.Manufacturer = textBox6.Text;
 
             unitOfWork.Resource.Add(tool);
@@ -169,7 +166,6 @@ namespace RoadService.Forms
             textBox10.Clear();
             textBox9.Clear();
             textBox8.Clear();
-            textBox7.Clear();
             textBox6.Clear();
         }
 
@@ -180,7 +176,6 @@ namespace RoadService.Forms
             transport.Name = textBox15.Text;
             transport.Description = textBox14.Text;
             transport.Price = decimal.Parse(textBox13.Text);
-            transport.VehicleType = textBox12.Text;
             transport.LicensePlate = textBox11.Text;
 
             unitOfWork.Resource.Add(transport);
@@ -189,7 +184,6 @@ namespace RoadService.Forms
             textBox15.Clear();
             textBox14.Clear();
             textBox13.Clear();
-            textBox12.Clear();
             textBox11.Clear();
         }
 
@@ -206,6 +200,15 @@ namespace RoadService.Forms
             item.ResourceId = ((Resource)comboBox3.SelectedItem).Id;
             item.Id = 0;
 
+            if (int.TryParse(textBox16.Text, out var num))
+            {
+                item.Count = num;
+            }
+            else
+            {
+                item.Count = 1;
+            }
+
             unitOfWork.ResourceTimeTableItem.Add(item);
             unitOfWork.Save();
         }
@@ -213,6 +216,11 @@ namespace RoadService.Forms
         private void button10_Click(object sender, EventArgs e)
         {
             dataGridView3.DataSource = unitOfWork.ResourceTimeTableItem.GetAll();
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

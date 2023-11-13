@@ -33,6 +33,7 @@
             menuStrip1 = new MenuStrip();
             додатиНовеЗавданняToolStripMenuItem = new ToolStripMenuItem();
             додатиДаніToolStripMenuItem = new ToolStripMenuItem();
+            оновитиToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -59,7 +60,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { додатиНовеЗавданняToolStripMenuItem, додатиДаніToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { додатиНовеЗавданняToolStripMenuItem, додатиДаніToolStripMenuItem, оновитиToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -80,6 +81,13 @@
             додатиДаніToolStripMenuItem.Text = "Додати дані";
             додатиДаніToolStripMenuItem.Click += додатиДаніToolStripMenuItem_Click;
             // 
+            // оновитиToolStripMenuItem
+            // 
+            оновитиToolStripMenuItem.Name = "оновитиToolStripMenuItem";
+            оновитиToolStripMenuItem.Size = new Size(67, 20);
+            оновитиToolStripMenuItem.Text = "Оновити";
+            оновитиToolStripMenuItem.Click += оновитиToolStripMenuItem_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -89,6 +97,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Main";
             Text = "Form1";
+            FormClosed += Main_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -104,5 +113,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem додатиНовеЗавданняToolStripMenuItem;
         private ToolStripMenuItem додатиДаніToolStripMenuItem;
+        private ToolStripMenuItem оновитиToolStripMenuItem;
     }
 }

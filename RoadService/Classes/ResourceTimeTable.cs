@@ -20,17 +20,20 @@ namespace RoadService.Classes
 
         public List<Resource> GetResources(DateTime timeStart, DateTime timeEnd)
         {
-            List<Resource> resources = _items.Where(u=> u.TimeStart >= timeStart && u.TimeEnd < timeEnd)
-                                             .Select(u => u.Resource).ToList();
-            return resources;
+            var busyIds = _items.Where(s => (s.TimeStart <= timeEnd && s.TimeEnd >= timeStart)).Select(s => s.ResourceId).ToList();
+
+            var availableResources = _unitOfWork.Resource.GetAll().Where(w => !busyIds.Contains(w.Id)).ToList();
+
+            return availableResources;
         }
 
-        public void ReserveResource(Resource resource, DateTime timeStart, DateTime timeEnd)
+        public void ReserveResource(Resource resource, int count, DateTime timeStart, DateTime timeEnd)
         {
             var res = new ResourceTimeTableItem();
             res.Resource = resource;
             res.TimeStart = timeStart;
             res.TimeEnd = timeEnd;
+            res.Count = count;
             _unitOfWork.ResourceTimeTableItem.Add(res);
             _unitOfWork.Save();
             

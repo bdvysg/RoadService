@@ -8,7 +8,6 @@ namespace RoadService.Classes
 {
     public class Transport : Resource
     {
-        public string VehicleType { get; set; } 
         public string LicensePlate { get; set; } 
     }
 }
