@@ -117,7 +117,7 @@
             // 
             comboBox1.Enabled = false;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(129, 302);
+            comboBox1.Location = new Point(136, 302);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 8;
@@ -126,10 +126,11 @@
             // 
             comboBox2.Enabled = false;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(129, 344);
+            comboBox2.Location = new Point(136, 344);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(121, 23);
             comboBox2.TabIndex = 10;
+            comboBox2.SelectedValueChanged += comboBox2_SelectedValueChanged;
             // 
             // label6
             // 
@@ -198,7 +199,7 @@
             // button3
             // 
             button3.Enabled = false;
-            button3.Location = new Point(263, 301);
+            button3.Location = new Point(270, 301);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 17;
@@ -209,7 +210,7 @@
             // button4
             // 
             button4.Enabled = false;
-            button4.Location = new Point(263, 358);
+            button4.Location = new Point(270, 358);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 18;
@@ -231,7 +232,7 @@
             // textBox4
             // 
             textBox4.Enabled = false;
-            textBox4.Location = new Point(129, 373);
+            textBox4.Location = new Point(136, 373);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(121, 23);
             textBox4.TabIndex = 20;
@@ -245,6 +246,7 @@
             label9.Size = new Size(56, 15);
             label9.TabIndex = 21;
             label9.Text = "Кількість";
+            label9.TextAlign = ContentAlignment.MiddleRight;
             // 
             // richTextBox1
             // 

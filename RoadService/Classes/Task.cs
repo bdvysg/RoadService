@@ -49,57 +49,8 @@ namespace RoadService.Classes
         public string ActualResourcesSerialized
         {
             get { return JsonConvert.SerializeObject(ActualResources); }
-            set { ActualResources = JsonConvert.DeserializeObject<List<Resource>>(value); }
+            set 
+            { ActualResources = JsonConvert.DeserializeObject<List<Resource>>(value); }
         }
-
-        /*
-        string address;
-        DateTime date;
-        List<Employee> employees;
-        List<Resource> resources;
-        string desc;
-        decimal price;
-        bool isAddressValid;
-        string status;
-
-        Task t;
-        Tariff tf;
-        AddressList adr;
-        EmployeeTimeTable empTT;
-        ResourceTimeTable resTT;
-
-        public Task(Tariff tf, AddressList adr, EmployeeTimeTable empTT, ResourceTimeTable resTT)
-        {
-            this.tf = tf;
-            this.adr = adr;
-            this.empTT = empTT;
-            this.resTT = resTT;
-        }
-
-        public bool isValidAddress(string address)
-        {
-            return adr.IsValidAddress(address);
-        }
-
-        List<Employee> GetEmployees()
-        {
-            empTT.GetEmployees(date);
-        }
-
-        public List<Resource> GetResources()
-        {
-            resTT.GetResources(date);
-        }
-
-        public void reserveEmployees(Employee emp)
-        {
-            empTT.ReserveEmployee(emp, date);
-        }
-
-        public void reserveResources(Resource res)
-        {
-            resTT.ReserveResorce(res, date);
-        }
-        */
     }
 }

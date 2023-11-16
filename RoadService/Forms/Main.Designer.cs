@@ -57,6 +57,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(800, 426);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // menuStrip1
             // 

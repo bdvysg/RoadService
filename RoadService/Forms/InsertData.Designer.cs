@@ -794,15 +794,16 @@
             // comboBox4
             // 
             comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(175, 84);
+            comboBox4.Location = new Point(158, 150);
             comboBox4.Name = "comboBox4";
             comboBox4.Size = new Size(173, 23);
             comboBox4.TabIndex = 5;
+            comboBox4.SelectedValueChanged += comboBox4_SelectedValueChanged;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(399, 84);
+            label11.Location = new Point(382, 150);
             label11.Name = "label11";
             label11.Size = new Size(56, 15);
             label11.TabIndex = 4;
@@ -810,14 +811,14 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(481, 81);
+            textBox4.Location = new Point(549, 150);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(100, 23);
             textBox4.TabIndex = 3;
             // 
             // button14
             // 
-            button14.Location = new Point(506, 132);
+            button14.Location = new Point(489, 198);
             button14.Name = "button14";
             button14.Size = new Size(75, 23);
             button14.TabIndex = 2;
@@ -827,7 +828,7 @@
             // 
             // button13
             // 
-            button13.Location = new Point(399, 132);
+            button13.Location = new Point(382, 198);
             button13.Name = "button13";
             button13.Size = new Size(75, 23);
             button13.TabIndex = 1;

@@ -20,7 +20,7 @@ namespace RoadService.Classes
 
         public List<Resource> GetResources(DateTime timeStart, DateTime timeEnd)
         {
-            var busyIds = _items.Where(s => (s.TimeStart <= timeEnd && s.TimeEnd >= timeStart)).Select(s => s.ResourceId).ToList();
+            var busyIds = _items.Where(u=> u.Resource is not Material).Where(s => (s.TimeStart <= timeEnd && s.TimeEnd >= timeStart)).Select(s => s.ResourceId).ToList();
 
             var availableResources = _unitOfWork.Resource.GetAll().Where(w => !busyIds.Contains(w.Id)).ToList();
 
@@ -34,16 +34,31 @@ namespace RoadService.Classes
             res.TimeStart = timeStart;
             res.TimeEnd = timeEnd;
             res.Count = count;
+
+            if(resource is Material)
+            {
+                Stock stock = _unitOfWork.Stock.Get(u => u.ResourceId == resource.Id);
+                stock.Count -= count;
+                _unitOfWork.Stock.Update(stock);
+            }
+
             _unitOfWork.ResourceTimeTableItem.Add(res);
             _unitOfWork.Save();
             
         }
-        public void UnReserveResource(Resource resource, DateTime timeStart, DateTime timeEnd)
+        public void UnReserveResource(Resource resource,int count, DateTime timeStart, DateTime timeEnd)
         {
             var res = new ResourceTimeTableItem();
             res.Resource = resource;
             res.TimeStart = timeStart;
             res.TimeEnd = timeEnd;
+
+            if (resource is Material)
+            {
+                Stock stock = _unitOfWork.Stock.Get(u => u.ResourceId == resource.Id);
+                stock.Count += count;
+                _unitOfWork.Stock.Update(stock);
+            }
             _unitOfWork.ResourceTimeTableItem.Remove(res);
             _unitOfWork.Save();
         }

@@ -7,9 +7,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Task = RoadService.Classes.Task;
 
 namespace RoadService.Forms
@@ -50,7 +52,7 @@ namespace RoadService.Forms
                 richTextBox1.Enabled = true;
                 dateTimePicker1.Enabled = true;
                 dateTimePicker2.Enabled = true;
-                button5.Enabled = true;  
+                button5.Enabled = true;
                 MessageBox.Show("Дана адреса обслуговується");
             }
             else
@@ -108,7 +110,7 @@ namespace RoadService.Forms
             task.Employees.Add(comboBox1.SelectedItem as Employee);
             comboBox1.Items.Remove(comboBox1.SelectedItem as Employee);
 
-            if (task.Employees.Count > 0 || task.PlannedResources.Count > 0) 
+            if (task.Employees.Count > 0 || task.PlannedResources.Count > 0)
             {
                 button6.Enabled = true;
             }
@@ -118,9 +120,17 @@ namespace RoadService.Forms
         {
             int count = int.Parse(textBox4.Text);
             textBox4.Text = "1";
+            int max_count = unitOfWork.Stock.Get(u => u.Resource.Id == (comboBox2.SelectedItem as Resource).Id).Count;
+            var ress = unitOfWork.Resource.GetAll();
+
+            if (count > max_count)
+            {
+                MessageBox.Show($"На складі доступно лише {max_count} одиниць!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            } 
             for (int i = 0; i < count; i++)
             {
-                task.PlannedResources.Add(comboBox2.SelectedItem as Resource);
+                task.PlannedResources.Add(ress.First(u => u.Id == (comboBox2.SelectedItem as Resource).Id));
             }
 
             if (task.Employees.Count > 0 || task.PlannedResources.Count > 0)
@@ -131,7 +141,7 @@ namespace RoadService.Forms
 
         private void button6_Click(object sender, EventArgs e)
         {
-            task.PlannedPrice = Calc.GetPrice(task);
+            task.PlannedPrice = Calc.GetPlannedPrice(task);
             label10.Text = "Орієнтована ціна - " + task.PlannedPrice.ToString() + " грн.";
             button2.Enabled = true;
 
@@ -170,7 +180,7 @@ namespace RoadService.Forms
                 return;
             }
 
-            foreach(var emp in task.Employees)
+            foreach (var emp in task.Employees)
             {
                 employeeTimeTable.ReserveEmployee(emp, task.TimeStart, task.TimeEnd);
             }
@@ -182,14 +192,26 @@ namespace RoadService.Forms
                                      Count = group.Count()
                                  })
                                  .ToList();
-            
-            foreach(var group in groupedCounts)
+
+            foreach (var group in groupedCounts)
             {
                 resourceTimeTable.ReserveResource(group.Value, group.Count, task.TimeStart, task.TimeEnd);
             }
             unitOfWork.Task.Add(task);
             unitOfWork.Save();
             this.Close();
+        }
+
+        private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem is Material)
+            {
+                label9.Text = "Кількість ( " + (comboBox2.SelectedItem as Material).UnitOfMeasure + " )";
+            }
+            else
+            {
+                label9.Text = "Кількість";
+            }
         }
     }
 }

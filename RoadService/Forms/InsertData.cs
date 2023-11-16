@@ -66,6 +66,9 @@ namespace RoadService.Forms
             resources = unitOfWork.Resource.GetAll().ToList();
             stocks = unitOfWork.Stock.GetAll(includeProperties: "Resource").ToList();
 
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
+
             comboBox3.Items.AddRange(resources.ToArray());
             comboBox4.Items.AddRange(resources.ToArray());
 
@@ -272,7 +275,7 @@ namespace RoadService.Forms
                 {
                     Stock item = unitOfWork.Stock.GetAll().First(u => u.ResourceId == (comboBox4.SelectedItem as Resource).Id);
                     item.Count -= num;
-                    if (item.Count <= 0) 
+                    if (item.Count <= 0)
                     {
                         MessageBox.Show("Кількість не може бути менше нуля");
                         return;
@@ -285,10 +288,22 @@ namespace RoadService.Forms
                     MessageBox.Show("Даного ресурсу не знайдено");
                     return;
                 }
-                
+
             }
 
             LoadResources();
+        }
+
+        private void comboBox4_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(comboBox4.SelectedItem is Material)
+            {
+                label11.Text = "Кількість ( " + (comboBox4.SelectedItem as Material).UnitOfMeasure + " )";
+            }
+            else
+            {
+                label11.Text = "Кількість";
+            }
         }
     }
 }
