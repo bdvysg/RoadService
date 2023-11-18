@@ -56,17 +56,21 @@ namespace RoadService.Forms
 
         public void UpdateTables()
         {
-            dataGridView1.DataSource = task.Employees;
+            dataGridView1.DataSource = task.Employees.Select(item => new
+            {
+                Імя = item.FirstName,
+                Прізвище = item.LastName,
+                Посада = item.Position,
+                Ставка = item.WagePerHour
+            }).ToList();
 
-            var gropus = task.PlannedResources.GroupBy(x => x.Name)
+            dataGridView2.DataSource = task.PlannedResources.GroupBy(x => x.Name)
                      .Select(group => new
                      {
-                         Value = group.Key,
-                         Count = group.Count()
+                         Назва = group.Key,
+                         Кількість = group.Count()
                      })
                      .ToList();
-
-            dataGridView2.DataSource = gropus;
         }
 
         private void comboBox2_SelectedValueChanged(object sender, EventArgs e)

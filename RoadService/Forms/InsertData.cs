@@ -50,6 +50,10 @@ namespace RoadService.Forms
             comboBox2.Items.Add("Транспорт");
             comboBox2.SelectedIndex = 0;
 
+            tabControl1.TabPages.Remove(tabPage1);
+            tabControl1.TabPages.Remove(tabPage3);
+
+
             LoadEmployees();
             LoadResources();
         }
@@ -79,6 +83,23 @@ namespace RoadService.Forms
             dataGridView4.Columns[3].HeaderText = "Кількість";
 
 
+        }
+
+        private void ResfreshDgv2() 
+        {
+            var resources = unitOfWork.Resource.GetAll();
+            if (comboBox2.SelectedIndex == 0)
+            {
+                dataGridView2.DataSource = resources.OfType<Material>().ToList();
+            }
+            if (comboBox2.SelectedIndex == 1)
+            {
+                dataGridView2.DataSource = resources.OfType<Tool>().ToList();
+            }
+            if (comboBox2.SelectedIndex == 2)
+            {
+                dataGridView2.DataSource = resources.OfType<Transport>().ToList();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -128,19 +149,7 @@ namespace RoadService.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
-            var resources = unitOfWork.Resource.GetAll();
-            if (comboBox2.SelectedIndex == 0)
-            {
-                dataGridView2.DataSource = resources.OfType<Material>().ToList();
-            }
-            if (comboBox2.SelectedIndex == 1)
-            {
-                dataGridView2.DataSource = resources.OfType<Tool>().ToList();
-            }
-            if (comboBox2.SelectedIndex == 2)
-            {
-                dataGridView2.DataSource = resources.OfType<Transport>().ToList();
-            }
+            ResfreshDgv2();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,6 +172,7 @@ namespace RoadService.Forms
                 pnlTools.Visible = false;
                 pnlTransport.Visible = true;
             }
+            ResfreshDgv2();
         }
 
         private void button8_Click(object sender, EventArgs e)

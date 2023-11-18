@@ -18,8 +18,21 @@ namespace RoadService
             InitializeComponent();
             dbContext = new RoadServiceDBContext();
             unitOfWork = new UnitOfWork(dbContext);
+            Refresh();
+        }
+
+        public void Refresh()
+        {
             var tasks = unitOfWork.Task.GetAll().Where(u => !u.isClosed);
-            dataGridView1.DataSource = tasks;
+            dgv.DataSource = tasks.Select(item => new
+            {
+                Íàçâà = item.Name,
+                Îïèñ = item.Description,
+                Ïî÷àòîê = item.TimeStart,
+                Çàê³í÷åííÿ = item.TimeEnd,
+                Ö³íà = item.PlannedPrice,
+
+            }).ToList();
         }
 
         private void äîäàòèÍîâåÇàâäàííÿToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,28 +54,14 @@ namespace RoadService
 
         private void îíîâèòèToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*var tasks = unitOfWork.Task.GetAll().ToList();
-            var res_list = tasks.Select(t=> t.PlannedResources.Select(u=> u.Id).ToList()).ToList();
-            var res = unitOfWork.Resource.GetAll();
-
-             for (int i = 0; i < tasks.Count(); i++)
-            {
-                var fin_res = new List<Resource>();
-                foreach (var resrc in res_list)
-                {
-                    fin_res.Add(res.First(r => resrc.Contains(r.Id)));
-                }
-                tasks[i].PlannedResources = fin_res;
-            }*/
-            var tasks = unitOfWork.Task.GetAll().Where(u => !u.isClosed).ToList();
-            dataGridView1.DataSource = tasks;
+            Refresh();
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                Task selectedObject = dataGridView1.Rows[e.RowIndex].DataBoundItem as Task;
+                Task selectedObject = unitOfWork.Task.Get(u=> u.Name == dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
                 if (selectedObject != null)
                 {
                     CloseTask form = new CloseTask(selectedObject);

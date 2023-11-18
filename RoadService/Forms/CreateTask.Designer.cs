@@ -28,286 +28,392 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            label3 = new Label();
-            textBox3 = new TextBox();
-            label4 = new Label();
-            label5 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            label6 = new Label();
-            label7 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            label8 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            textBox4 = new TextBox();
-            label9 = new Label();
-            richTextBox1 = new RichTextBox();
-            button6 = new Button();
+            lblName = new Label();
+            txtName = new TextBox();
+            lblDescription = new Label();
+            txtAddress = new TextBox();
+            lblAddress = new Label();
+            lblEmployees = new Label();
+            cmbEmployees = new ComboBox();
+            cmbResources = new ComboBox();
+            lblResources = new Label();
+            lblDateStart = new Label();
+            dtp1 = new DateTimePicker();
+            dpt2 = new DateTimePicker();
+            lblDateEnd = new Label();
+            btnCheckAddress = new Button();
+            btnCreate = new Button();
+            btnAddEmployee = new Button();
+            btnAddResources = new Button();
+            btnFilter = new Button();
+            txtCount = new TextBox();
+            lblCount = new Label();
+            rtxtDescription = new RichTextBox();
+            btnCalcPrice = new Button();
             label10 = new Label();
+            panel1 = new Panel();
+            dgvResources = new DataGridView();
+            dgvEmployees = new DataGridView();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvResources).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEmployees).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(333, 23);
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(460, 9);
             label1.Name = "label1";
-            label1.Size = new Size(118, 15);
+            label1.Size = new Size(157, 21);
             label1.TabIndex = 0;
             label1.Text = "Створення завдання";
             // 
-            // label2
+            // lblName
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(51, 52);
-            label2.Name = "label2";
-            label2.Size = new Size(39, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Назва";
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI", 12F);
+            lblName.Location = new Point(51, 52);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(52, 21);
+            lblName.TabIndex = 1;
+            lblName.Text = "Назва";
             // 
-            // textBox1
+            // txtName
             // 
-            textBox1.Location = new Point(107, 49);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
+            txtName.Font = new Font("Segoe UI", 12F);
+            txtName.Location = new Point(107, 49);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(177, 29);
+            txtName.TabIndex = 2;
             // 
-            // label3
+            // lblDescription
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(51, 120);
-            label3.Name = "label3";
-            label3.Size = new Size(36, 15);
-            label3.TabIndex = 3;
-            label3.Text = "Опис";
+            lblDescription.AutoSize = true;
+            lblDescription.Font = new Font("Segoe UI", 12F);
+            lblDescription.Location = new Point(51, 120);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Size = new Size(47, 21);
+            lblDescription.TabIndex = 3;
+            lblDescription.Text = "Опис";
             // 
-            // textBox3
+            // txtAddress
             // 
-            textBox3.Location = new Point(109, 81);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 6;
+            txtAddress.Font = new Font("Segoe UI", 12F);
+            txtAddress.Location = new Point(109, 81);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(175, 29);
+            txtAddress.TabIndex = 6;
             // 
-            // label4
+            // lblAddress
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(53, 84);
-            label4.Name = "label4";
-            label4.Size = new Size(46, 15);
-            label4.TabIndex = 5;
-            label4.Text = "Адреса";
+            lblAddress.AutoSize = true;
+            lblAddress.Font = new Font("Segoe UI", 12F);
+            lblAddress.Location = new Point(53, 84);
+            lblAddress.Name = "lblAddress";
+            lblAddress.Size = new Size(61, 21);
+            lblAddress.TabIndex = 5;
+            lblAddress.Text = "Адреса";
             // 
-            // label5
+            // lblEmployees
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(51, 305);
-            label5.Name = "label5";
-            label5.Size = new Size(72, 15);
-            label5.TabIndex = 7;
-            label5.Text = "Працівники";
+            lblEmployees.AutoSize = true;
+            lblEmployees.Font = new Font("Segoe UI", 12F);
+            lblEmployees.Location = new Point(572, 213);
+            lblEmployees.Name = "lblEmployees";
+            lblEmployees.Size = new Size(95, 21);
+            lblEmployees.TabIndex = 7;
+            lblEmployees.Text = "Працівники";
             // 
-            // comboBox1
+            // cmbEmployees
             // 
-            comboBox1.Enabled = false;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(136, 302);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 8;
+            cmbEmployees.Enabled = false;
+            cmbEmployees.Font = new Font("Segoe UI", 12F);
+            cmbEmployees.FormattingEnabled = true;
+            cmbEmployees.Location = new Point(673, 210);
+            cmbEmployees.Name = "cmbEmployees";
+            cmbEmployees.Size = new Size(190, 29);
+            cmbEmployees.TabIndex = 8;
             // 
-            // comboBox2
+            // cmbResources
             // 
-            comboBox2.Enabled = false;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(136, 344);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 10;
-            comboBox2.SelectedValueChanged += comboBox2_SelectedValueChanged;
+            cmbResources.Enabled = false;
+            cmbResources.Font = new Font("Segoe UI", 12F);
+            cmbResources.FormattingEnabled = true;
+            cmbResources.Location = new Point(673, 245);
+            cmbResources.Name = "cmbResources";
+            cmbResources.Size = new Size(190, 29);
+            cmbResources.TabIndex = 10;
+            cmbResources.SelectedValueChanged += comboBox2_SelectedValueChanged;
             // 
-            // label6
+            // lblResources
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(51, 347);
-            label6.Name = "label6";
-            label6.Size = new Size(52, 15);
-            label6.TabIndex = 9;
-            label6.Text = "Ресурси";
+            lblResources.AutoSize = true;
+            lblResources.Font = new Font("Segoe UI", 12F);
+            lblResources.Location = new Point(600, 248);
+            lblResources.Name = "lblResources";
+            lblResources.Size = new Size(67, 21);
+            lblResources.TabIndex = 9;
+            lblResources.Text = "Ресурси";
             // 
-            // label7
+            // lblDateStart
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(53, 223);
-            label7.Name = "label7";
-            label7.Size = new Size(79, 15);
-            label7.TabIndex = 11;
-            label7.Text = "Дата початку";
+            lblDateStart.AutoSize = true;
+            lblDateStart.Font = new Font("Segoe UI", 12F);
+            lblDateStart.Location = new Point(563, 58);
+            lblDateStart.Name = "lblDateStart";
+            lblDateStart.Size = new Size(106, 21);
+            lblDateStart.TabIndex = 11;
+            lblDateStart.Text = "Дата початку";
             // 
-            // dateTimePicker1
+            // dtp1
             // 
-            dateTimePicker1.Enabled = false;
-            dateTimePicker1.Location = new Point(138, 217);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 12;
+            dtp1.Enabled = false;
+            dtp1.Font = new Font("Segoe UI", 12F);
+            dtp1.Location = new Point(673, 52);
+            dtp1.Name = "dtp1";
+            dtp1.Size = new Size(200, 29);
+            dtp1.TabIndex = 12;
             // 
-            // dateTimePicker2
+            // dpt2
             // 
-            dateTimePicker2.Enabled = false;
-            dateTimePicker2.Location = new Point(138, 246);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 14;
+            dpt2.Enabled = false;
+            dpt2.Font = new Font("Segoe UI", 12F);
+            dpt2.Location = new Point(673, 84);
+            dpt2.Name = "dpt2";
+            dpt2.Size = new Size(200, 29);
+            dpt2.TabIndex = 14;
             // 
-            // label8
+            // lblDateEnd
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(53, 252);
-            label8.Name = "label8";
-            label8.Size = new Size(64, 15);
-            label8.TabIndex = 13;
-            label8.Text = "Дата кінця";
+            lblDateEnd.AutoSize = true;
+            lblDateEnd.Font = new Font("Segoe UI", 12F);
+            lblDateEnd.Location = new Point(563, 87);
+            lblDateEnd.Name = "lblDateEnd";
+            lblDateEnd.Size = new Size(87, 21);
+            lblDateEnd.TabIndex = 13;
+            lblDateEnd.Text = "Дата кінця";
             // 
-            // button1
+            // btnCheckAddress
             // 
-            button1.Location = new Point(228, 84);
-            button1.Name = "button1";
-            button1.Size = new Size(161, 23);
-            button1.TabIndex = 15;
-            button1.Text = "Перевірити адресу";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnCheckAddress.Font = new Font("Segoe UI", 12F);
+            btnCheckAddress.Location = new Point(290, 81);
+            btnCheckAddress.Name = "btnCheckAddress";
+            btnCheckAddress.Size = new Size(161, 29);
+            btnCheckAddress.TabIndex = 15;
+            btnCheckAddress.Text = "Перевірити адресу";
+            btnCheckAddress.UseVisualStyleBackColor = true;
+            btnCheckAddress.Click += btnCheckAddress_Click;
             // 
-            // button2
+            // btnCreate
             // 
-            button2.Enabled = false;
-            button2.Location = new Point(362, 425);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 16;
-            button2.Text = "Створити";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnCreate.Enabled = false;
+            btnCreate.Font = new Font("Segoe UI", 12F);
+            btnCreate.Location = new Point(482, 338);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(114, 31);
+            btnCreate.TabIndex = 16;
+            btnCreate.Text = "Створити";
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnClose_Click;
             // 
-            // button3
+            // btnAddEmployee
             // 
-            button3.Enabled = false;
-            button3.Location = new Point(270, 301);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 17;
-            button3.Text = "Додати";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnAddEmployee.Enabled = false;
+            btnAddEmployee.Font = new Font("Segoe UI", 12F);
+            btnAddEmployee.Location = new Point(869, 210);
+            btnAddEmployee.Name = "btnAddEmployee";
+            btnAddEmployee.Size = new Size(101, 29);
+            btnAddEmployee.TabIndex = 17;
+            btnAddEmployee.Text = "Додати";
+            btnAddEmployee.UseVisualStyleBackColor = true;
+            btnAddEmployee.Click += btnAddResources_Click;
             // 
-            // button4
+            // btnAddResources
             // 
-            button4.Enabled = false;
-            button4.Location = new Point(270, 358);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 18;
-            button4.Text = "Додати";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnAddResources.Enabled = false;
+            btnAddResources.Font = new Font("Segoe UI", 12F);
+            btnAddResources.Location = new Point(869, 245);
+            btnAddResources.Name = "btnAddResources";
+            btnAddResources.Size = new Size(98, 29);
+            btnAddResources.TabIndex = 18;
+            btnAddResources.Text = "Додати";
+            btnAddResources.UseVisualStyleBackColor = true;
+            btnAddResources.Click += btnAddResources_Click;
             // 
-            // button5
+            // btnFilter
             // 
-            button5.Enabled = false;
-            button5.Location = new Point(362, 232);
-            button5.Name = "button5";
-            button5.Size = new Size(168, 23);
-            button5.TabIndex = 19;
-            button5.Text = "Відфільтрувати ";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            btnFilter.Enabled = false;
+            btnFilter.Font = new Font("Segoe UI", 12F);
+            btnFilter.Location = new Point(673, 119);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(200, 29);
+            btnFilter.TabIndex = 19;
+            btnFilter.Text = "Відфільтрувати ";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnAddResources_Click;
             // 
-            // textBox4
+            // txtCount
             // 
-            textBox4.Enabled = false;
-            textBox4.Location = new Point(136, 373);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(121, 23);
-            textBox4.TabIndex = 20;
-            textBox4.Text = "1";
+            txtCount.Enabled = false;
+            txtCount.Font = new Font("Segoe UI", 12F);
+            txtCount.Location = new Point(673, 280);
+            txtCount.Name = "txtCount";
+            txtCount.Size = new Size(190, 29);
+            txtCount.TabIndex = 20;
+            txtCount.Text = "1";
             // 
-            // label9
+            // lblCount
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(51, 376);
-            label9.Name = "label9";
-            label9.Size = new Size(56, 15);
-            label9.TabIndex = 21;
-            label9.Text = "Кількість";
-            label9.TextAlign = ContentAlignment.MiddleRight;
+            lblCount.AutoSize = true;
+            lblCount.Font = new Font("Segoe UI", 12F);
+            lblCount.Location = new Point(594, 283);
+            lblCount.Name = "lblCount";
+            lblCount.Size = new Size(73, 21);
+            lblCount.TabIndex = 21;
+            lblCount.Text = "Кількість";
+            lblCount.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // richTextBox1
+            // rtxtDescription
             // 
-            richTextBox1.Enabled = false;
-            richTextBox1.Location = new Point(107, 120);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(344, 82);
-            richTextBox1.TabIndex = 22;
-            richTextBox1.Text = "";
+            rtxtDescription.Enabled = false;
+            rtxtDescription.Font = new Font("Segoe UI", 12F);
+            rtxtDescription.Location = new Point(104, 116);
+            rtxtDescription.Name = "rtxtDescription";
+            rtxtDescription.Size = new Size(344, 82);
+            rtxtDescription.TabIndex = 22;
+            rtxtDescription.Text = "";
             // 
-            // button6
+            // btnCalcPrice
             // 
-            button6.Enabled = false;
-            button6.Location = new Point(411, 328);
-            button6.Name = "button6";
-            button6.Size = new Size(104, 23);
-            button6.TabIndex = 23;
-            button6.Text = "Обчислити ціну";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            btnCalcPrice.Enabled = false;
+            btnCalcPrice.Font = new Font("Segoe UI", 12F);
+            btnCalcPrice.Location = new Point(53, 275);
+            btnCalcPrice.Name = "btnCalcPrice";
+            btnCalcPrice.Size = new Size(104, 29);
+            btnCalcPrice.TabIndex = 23;
+            btnCalcPrice.Text = "Обчислити ціну";
+            btnCalcPrice.UseVisualStyleBackColor = true;
+            btnCalcPrice.Click += btnCalcPrice_Click;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(521, 332);
+            label10.Font = new Font("Segoe UI", 12F);
+            label10.Location = new Point(163, 279);
             label10.Name = "label10";
-            label10.Size = new Size(95, 15);
+            label10.Size = new Size(124, 21);
             label10.TabIndex = 24;
             label10.Text = "Приблизна ціна";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(dgvResources);
+            panel1.Controls.Add(dgvEmployees);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 375);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1057, 244);
+            panel1.TabIndex = 25;
+            // 
+            // dgvResources
+            // 
+            dgvResources.AllowUserToAddRows = false;
+            dgvResources.AllowUserToDeleteRows = false;
+            dgvResources.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvResources.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dgvResources.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvResources.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvResources.Dock = DockStyle.Fill;
+            dgvResources.Location = new Point(548, 0);
+            dgvResources.Name = "dgvResources";
+            dgvResources.ReadOnly = true;
+            dgvResources.Size = new Size(509, 244);
+            dgvResources.TabIndex = 1;
+            // 
+            // dgvEmployees
+            // 
+            dgvEmployees.AllowUserToAddRows = false;
+            dgvEmployees.AllowUserToDeleteRows = false;
+            dgvEmployees.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvEmployees.DefaultCellStyle = dataGridViewCellStyle8;
+            dgvEmployees.Dock = DockStyle.Left;
+            dgvEmployees.Location = new Point(0, 0);
+            dgvEmployees.Name = "dgvEmployees";
+            dgvEmployees.ReadOnly = true;
+            dgvEmployees.Size = new Size(548, 244);
+            dgvEmployees.TabIndex = 0;
             // 
             // CreateTask
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(817, 460);
+            ClientSize = new Size(1057, 619);
+            Controls.Add(panel1);
             Controls.Add(label10);
-            Controls.Add(button6);
-            Controls.Add(richTextBox1);
-            Controls.Add(label9);
-            Controls.Add(textBox4);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(label8);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(label7);
-            Controls.Add(comboBox2);
-            Controls.Add(label6);
-            Controls.Add(comboBox1);
-            Controls.Add(label5);
-            Controls.Add(textBox3);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
+            Controls.Add(btnCalcPrice);
+            Controls.Add(rtxtDescription);
+            Controls.Add(lblCount);
+            Controls.Add(txtCount);
+            Controls.Add(btnFilter);
+            Controls.Add(btnAddResources);
+            Controls.Add(btnAddEmployee);
+            Controls.Add(btnCreate);
+            Controls.Add(btnCheckAddress);
+            Controls.Add(dpt2);
+            Controls.Add(lblDateEnd);
+            Controls.Add(dtp1);
+            Controls.Add(lblDateStart);
+            Controls.Add(cmbResources);
+            Controls.Add(lblResources);
+            Controls.Add(cmbEmployees);
+            Controls.Add(lblEmployees);
+            Controls.Add(txtAddress);
+            Controls.Add(lblAddress);
+            Controls.Add(lblDescription);
+            Controls.Add(txtName);
+            Controls.Add(lblName);
             Controls.Add(label1);
             Name = "CreateTask";
             Text = "Task";
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvResources).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEmployees).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -315,28 +421,31 @@
         #endregion
 
         private Label label1;
-        private Label label2;
-        private TextBox textBox1;
-        private Label label3;
-        private TextBox textBox3;
-        private Label label4;
-        private Label label5;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private Label label6;
-        private Label label7;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private Label label8;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private TextBox textBox4;
-        private Label label9;
-        private RichTextBox richTextBox1;
-        private Button button6;
+        private Label lblName;
+        private TextBox txtName;
+        private Label lblDescription;
+        private TextBox txtAddress;
+        private Label lblAddress;
+        private Label lblEmployees;
+        private ComboBox cmbEmployees;
+        private ComboBox cmbResources;
+        private Label lblResources;
+        private Label lblDateStart;
+        private DateTimePicker dtp1;
+        private DateTimePicker dpt2;
+        private Label lblDateEnd;
+        private Button btnCheckAddress;
+        private Button btnCreate;
+        private Button btnAddEmployee;
+        private Button btnAddResources;
+        private Button btnFilter;
+        private TextBox txtCount;
+        private Label lblCount;
+        private RichTextBox rtxtDescription;
+        private Button btnCalcPrice;
         private Label label10;
+        private Panel panel1;
+        private DataGridView dgvResources;
+        private DataGridView dgvEmployees;
     }
 }

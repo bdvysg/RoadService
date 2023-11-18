@@ -36,38 +36,38 @@ namespace RoadService.Forms
             resourceTimeTable = new ResourceTimeTable(unitOfWork);
             employeeTimeTable = new EmployeeTimeTable(unitOfWork);
 
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker1.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
-            dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
+            dtp1.Format = DateTimePickerFormat.Custom;
+            dtp1.CustomFormat = "dd.MM.yyyy HH:mm";
+            dpt2.Format = DateTimePickerFormat.Custom;
+            dpt2.CustomFormat = "dd.MM.yyyy HH:mm";
+            dtp1.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
+            dpt2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCheckAddress_Click(object sender, EventArgs e)
         {
-            if (addressList.IsValidAddress(textBox3.Text.Trim().Normalize()))
+            if (addressList.IsValidAddress(txtAddress.Text.Trim().Normalize()))
             {
-                task.Address = textBox3.Text.Trim();
-                richTextBox1.Enabled = true;
-                dateTimePicker1.Enabled = true;
-                dateTimePicker2.Enabled = true;
-                button5.Enabled = true;
+                task.Address = txtAddress.Text.Trim();
+                rtxtDescription.Enabled = true;
+                dtp1.Enabled = true;
+                dpt2.Enabled = true;
+                btnFilter.Enabled = true;
                 MessageBox.Show("Дана адреса обслуговується");
             }
             else
             {
-                textBox3.Text = string.Empty;
+                txtAddress.Text = string.Empty;
                 MessageBox.Show("Дана адреса не обслуговується. Перевірте правильність адреси та спробуйте ще раз");
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnFilter_Click(object sender, EventArgs e)
         {
-            var date1 = dateTimePicker1.Value;
+            var date1 = dtp1.Value;
             date1 = new DateTime(date1.Year, date1.Month, date1.Day, date1.Hour, 0, 0);
 
-            var date2 = dateTimePicker2.Value;
+            var date2 = dpt2.Value;
             date2 = new DateTime(date2.Year, date2.Month, date2.Day, date2.Hour, 0, 0);
 
             if (DateTime.Now >= date1)
@@ -89,38 +89,48 @@ namespace RoadService.Forms
             }
 
 
-            comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
+            cmbEmployees.Items.Clear();
+            cmbResources.Items.Clear();
 
-            comboBox1.Items.AddRange(employeeTimeTable.GetEmployees(date1, date2).ToArray());
-            comboBox2.Items.AddRange(resourceTimeTable.GetResources(date1, date2).ToArray());
+            cmbEmployees.Items.AddRange(employeeTimeTable.GetEmployees(date1, date2).ToArray());
+            cmbResources.Items.AddRange(resourceTimeTable.GetResources(date1, date2).ToArray());
 
             task.TimeStart = date1;
             task.TimeEnd = date2;
 
-            comboBox1.Enabled = true;
-            comboBox2.Enabled = true;
-            textBox4.Enabled = true;
-            button3.Enabled = true;
-            button4.Enabled = true;
+            cmbEmployees.Enabled = true;
+            cmbResources.Enabled = true;
+            txtCount.Enabled = true;
+            btnAddEmployee.Enabled = true;
+            btnAddResources.Enabled = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            task.Employees.Add(comboBox1.SelectedItem as Employee);
-            comboBox1.Items.Remove(comboBox1.SelectedItem as Employee);
+            var emp = cmbEmployees.SelectedItem as Employee;
 
-            if (task.Employees.Count > 0 || task.PlannedResources.Count > 0)
+            task.Employees.Add(emp);
+            dgvEmployees.DataSource = task.Employees.Select(item => new
             {
-                button6.Enabled = true;
+                Імя = item.FirstName,
+                Прізвище = item.LastName,
+                Посада = item.Position,
+                Ставка = item.WagePerHour
+            }).ToList();
+
+            cmbEmployees.Items.Remove(cmbEmployees.SelectedItem as Employee);
+
+            if (task.Employees.Count > 0 && task.PlannedResources.Count > 0)
+            {
+                btnCalcPrice.Enabled = true;
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnAddResources_Click(object sender, EventArgs e)
         {
-            int count = int.Parse(textBox4.Text);
-            textBox4.Text = "1";
-            int max_count = unitOfWork.Stock.Get(u => u.Resource.Id == (comboBox2.SelectedItem as Resource).Id).Count;
+            int count = int.Parse(txtCount.Text);
+            txtCount.Text = "1";
+            int max_count = unitOfWork.Stock.Get(u => u.Resource.Id == (cmbResources.SelectedItem as Resource).Id).Count;
             var ress = unitOfWork.Resource.GetAll();
 
             if (count > max_count)
@@ -130,29 +140,38 @@ namespace RoadService.Forms
             } 
             for (int i = 0; i < count; i++)
             {
-                task.PlannedResources.Add(ress.First(u => u.Id == (comboBox2.SelectedItem as Resource).Id));
+                task.PlannedResources.Add(ress.First(u => u.Id == (cmbResources.SelectedItem as Resource).Id));
             }
 
-            if (task.Employees.Count > 0 || task.PlannedResources.Count > 0)
+            dgvResources.DataSource = task.PlannedResources.GroupBy(x => x)
+                                .Select(group => new
+                                {
+                                    Назва = group.Key.Name,
+                                    Ціна = group.Key.Price,
+                                    Кількість = group.Count()
+                                })
+                                .ToList();
+
+            if (task.Employees.Count > 0 && task.PlannedResources.Count > 0)
             {
-                button6.Enabled = true;
+                btnCalcPrice.Enabled = true;
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnCalcPrice_Click(object sender, EventArgs e)
         {
             task.PlannedPrice = Calc.GetPlannedPrice(task);
             label10.Text = "Орієнтована ціна - " + task.PlannedPrice.ToString() + " грн.";
-            button2.Enabled = true;
+            btnCreate.Enabled = true;
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             task.isClosed = false;
             task.Status = "Очікується до виконання";
-            task.Name = textBox1.Text;
-            task.Description = richTextBox1.Text;
+            task.Name = txtName.Text;
+            task.Description = rtxtDescription.Text;
 
             if (string.IsNullOrEmpty(task.Name))
             {
@@ -204,13 +223,13 @@ namespace RoadService.Forms
 
         private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (comboBox2.SelectedItem is Material)
+            if (cmbResources.SelectedItem is Material)
             {
-                label9.Text = "Кількість ( " + (comboBox2.SelectedItem as Material).UnitOfMeasure + " )";
+                lblCount.Text = "Кількість ( " + (cmbResources.SelectedItem as Material).UnitOfMeasure + " )";
             }
             else
             {
-                label9.Text = "Кількість";
+                lblCount.Text = "Кількість";
             }
         }
     }

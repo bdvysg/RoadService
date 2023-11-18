@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             button3 = new Button();
@@ -59,32 +61,9 @@
             button7 = new Button();
             button6 = new Button();
             label3 = new Label();
-            pnlMaterial = new Panel();
-            button5 = new Button();
-            textBox5 = new TextBox();
-            label12 = new Label();
-            textBox3 = new TextBox();
-            label10 = new Label();
-            textBox2 = new TextBox();
-            label9 = new Label();
-            textBox1 = new TextBox();
-            label6 = new Label();
-            label5 = new Label();
-            button4 = new Button();
             label4 = new Label();
             comboBox2 = new ComboBox();
             dataGridView2 = new DataGridView();
-            pnlTransport = new Panel();
-            button9 = new Button();
-            textBox11 = new TextBox();
-            label19 = new Label();
-            textBox13 = new TextBox();
-            label21 = new Label();
-            textBox14 = new TextBox();
-            label22 = new Label();
-            textBox15 = new TextBox();
-            label23 = new Label();
-            label24 = new Label();
             pnlTools = new Panel();
             button8 = new Button();
             textBox6 = new TextBox();
@@ -96,7 +75,30 @@
             textBox10 = new TextBox();
             label17 = new Label();
             label18 = new Label();
+            pnlMaterial = new Panel();
+            button5 = new Button();
+            textBox5 = new TextBox();
+            label12 = new Label();
+            textBox3 = new TextBox();
+            label10 = new Label();
+            textBox2 = new TextBox();
+            label9 = new Label();
+            textBox1 = new TextBox();
+            label6 = new Label();
+            label5 = new Label();
+            pnlTransport = new Panel();
+            button9 = new Button();
+            textBox11 = new TextBox();
+            label19 = new Label();
+            textBox13 = new TextBox();
+            label21 = new Label();
+            textBox14 = new TextBox();
+            label22 = new Label();
+            textBox15 = new TextBox();
+            label23 = new Label();
+            label24 = new Label();
             tabPage4 = new TabPage();
+            label14 = new Label();
             comboBox4 = new ComboBox();
             label11 = new Label();
             textBox4 = new TextBox();
@@ -109,10 +111,10 @@
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             tabPage2.SuspendLayout();
-            pnlMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            pnlTransport.SuspendLayout();
             pnlTools.SuspendLayout();
+            pnlMaterial.SuspendLayout();
+            pnlTransport.SuspendLayout();
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             SuspendLayout();
@@ -391,13 +393,13 @@
             tabPage2.Controls.Add(button7);
             tabPage2.Controls.Add(button6);
             tabPage2.Controls.Add(label3);
-            tabPage2.Controls.Add(pnlMaterial);
-            tabPage2.Controls.Add(button4);
             tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(comboBox2);
             tabPage2.Controls.Add(dataGridView2);
-            tabPage2.Controls.Add(pnlTransport);
             tabPage2.Controls.Add(pnlTools);
+            tabPage2.Controls.Add(pnlMaterial);
+            tabPage2.Controls.Add(pnlTransport);
+            tabPage2.Font = new Font("Segoe UI", 12F);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -408,9 +410,10 @@
             // 
             // button7
             // 
-            button7.Location = new Point(800, 388);
+            button7.Font = new Font("Segoe UI", 12F);
+            button7.Location = new Point(784, 380);
             button7.Name = "button7";
-            button7.Size = new Size(75, 23);
+            button7.Size = new Size(91, 31);
             button7.TabIndex = 8;
             button7.Text = "Оновити таблицю";
             button7.UseVisualStyleBackColor = true;
@@ -418,148 +421,45 @@
             // 
             // button6
             // 
-            button6.Location = new Point(6, 388);
+            button6.Font = new Font("Segoe UI", 12F);
+            button6.Location = new Point(6, 380);
             button6.Name = "button6";
-            button6.Size = new Size(75, 23);
+            button6.Size = new Size(91, 31);
             button6.TabIndex = 7;
             button6.Text = "Кількість";
             button6.UseVisualStyleBackColor = true;
+            button6.Visible = false;
             button6.Click += button6_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(87, 392);
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(103, 385);
             label3.Name = "label3";
-            label3.Size = new Size(56, 15);
+            label3.Size = new Size(73, 21);
             label3.TabIndex = 6;
             label3.Text = "Кількість";
-            // 
-            // pnlMaterial
-            // 
-            pnlMaterial.Controls.Add(button5);
-            pnlMaterial.Controls.Add(textBox5);
-            pnlMaterial.Controls.Add(label12);
-            pnlMaterial.Controls.Add(textBox3);
-            pnlMaterial.Controls.Add(label10);
-            pnlMaterial.Controls.Add(textBox2);
-            pnlMaterial.Controls.Add(label9);
-            pnlMaterial.Controls.Add(textBox1);
-            pnlMaterial.Controls.Add(label6);
-            pnlMaterial.Controls.Add(label5);
-            pnlMaterial.Location = new Point(3, 35);
-            pnlMaterial.Name = "pnlMaterial";
-            pnlMaterial.Size = new Size(872, 339);
-            pnlMaterial.TabIndex = 5;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(370, 291);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 11;
-            button5.Text = "Створити";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(247, 196);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 10;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(147, 199);
-            label12.Name = "label12";
-            label12.Size = new Size(94, 15);
-            label12.TabIndex = 9;
-            label12.Text = "Одиниці виміру";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(247, 158);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 6;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(147, 158);
-            label10.Name = "label10";
-            label10.Size = new Size(32, 15);
-            label10.TabIndex = 5;
-            label10.Text = "Ціна";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(247, 129);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 4;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(147, 129);
-            label9.Name = "label9";
-            label9.Size = new Size(36, 15);
-            label9.TabIndex = 3;
-            label9.Text = "Опис";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(247, 100);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(147, 100);
-            label6.Name = "label6";
-            label6.Size = new Size(39, 15);
-            label6.TabIndex = 1;
-            label6.Text = "Назва";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(385, 29);
-            label5.Name = "label5";
-            label5.Size = new Size(58, 15);
-            label5.TabIndex = 0;
-            label5.Text = "Матеріал";
-            // 
-            // button4
-            // 
-            button4.Location = new Point(388, 118);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 4;
-            button4.Text = "Обрати";
-            button4.UseVisualStyleBackColor = true;
+            label3.Visible = false;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(721, 9);
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.Location = new Point(660, 9);
             label4.Name = "label4";
-            label4.Size = new Size(27, 15);
+            label4.Size = new Size(36, 21);
             label4.TabIndex = 3;
             label4.Text = "Тип";
             // 
             // comboBox2
             // 
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.Font = new Font("Segoe UI", 12F);
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(754, 6);
+            comboBox2.Location = new Point(702, 6);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
+            comboBox2.Size = new Size(173, 29);
             comboBox2.TabIndex = 2;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
@@ -573,107 +473,6 @@
             dataGridView2.Size = new Size(872, 188);
             dataGridView2.TabIndex = 0;
             // 
-            // pnlTransport
-            // 
-            pnlTransport.Controls.Add(button9);
-            pnlTransport.Controls.Add(textBox11);
-            pnlTransport.Controls.Add(label19);
-            pnlTransport.Controls.Add(textBox13);
-            pnlTransport.Controls.Add(label21);
-            pnlTransport.Controls.Add(textBox14);
-            pnlTransport.Controls.Add(label22);
-            pnlTransport.Controls.Add(textBox15);
-            pnlTransport.Controls.Add(label23);
-            pnlTransport.Controls.Add(label24);
-            pnlTransport.Location = new Point(0, 35);
-            pnlTransport.Name = "pnlTransport";
-            pnlTransport.Size = new Size(872, 339);
-            pnlTransport.TabIndex = 13;
-            pnlTransport.Visible = false;
-            // 
-            // button9
-            // 
-            button9.Location = new Point(370, 291);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 23);
-            button9.TabIndex = 11;
-            button9.Text = "Створити";
-            button9.UseVisualStyleBackColor = true;
-            button9.Click += button9_Click;
-            // 
-            // textBox11
-            // 
-            textBox11.Location = new Point(237, 190);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(100, 23);
-            textBox11.TabIndex = 10;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(147, 193);
-            label19.Name = "label19";
-            label19.Size = new Size(78, 15);
-            label19.TabIndex = 9;
-            label19.Text = "Номер знаку";
-            // 
-            // textBox13
-            // 
-            textBox13.Location = new Point(237, 158);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(100, 23);
-            textBox13.TabIndex = 6;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new Point(147, 158);
-            label21.Name = "label21";
-            label21.Size = new Size(32, 15);
-            label21.TabIndex = 5;
-            label21.Text = "Ціна";
-            // 
-            // textBox14
-            // 
-            textBox14.Location = new Point(237, 129);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(100, 23);
-            textBox14.TabIndex = 4;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(147, 129);
-            label22.Name = "label22";
-            label22.Size = new Size(36, 15);
-            label22.TabIndex = 3;
-            label22.Text = "Опис";
-            // 
-            // textBox15
-            // 
-            textBox15.Location = new Point(237, 100);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(100, 23);
-            textBox15.TabIndex = 2;
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Location = new Point(147, 100);
-            label23.Name = "label23";
-            label23.Size = new Size(39, 15);
-            label23.TabIndex = 1;
-            label23.Text = "Назва";
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Location = new Point(385, 29);
-            label24.Name = "label24";
-            label24.Size = new Size(65, 15);
-            label24.TabIndex = 0;
-            label24.Text = "Транспорт";
-            // 
             // pnlTools
             // 
             pnlTools.Controls.Add(button8);
@@ -686,6 +485,7 @@
             pnlTools.Controls.Add(textBox10);
             pnlTools.Controls.Add(label17);
             pnlTools.Controls.Add(label18);
+            pnlTools.Font = new Font("Segoe UI", 12F);
             pnlTools.Location = new Point(3, 35);
             pnlTools.Name = "pnlTools";
             pnlTools.Size = new Size(872, 339);
@@ -694,9 +494,9 @@
             // 
             // button8
             // 
-            button8.Location = new Point(370, 291);
+            button8.Location = new Point(376, 291);
             button8.Name = "button8";
-            button8.Size = new Size(75, 23);
+            button8.Size = new Size(91, 33);
             button8.TabIndex = 11;
             button8.Text = "Створити";
             button8.UseVisualStyleBackColor = true;
@@ -704,80 +504,284 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(218, 193);
+            textBox6.Location = new Point(370, 182);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
+            textBox6.Size = new Size(157, 29);
             textBox6.TabIndex = 10;
             textBox6.TextChanged += textBox6_TextChanged;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(147, 196);
+            label13.Location = new Point(283, 185);
             label13.Name = "label13";
-            label13.Size = new Size(62, 15);
+            label13.Size = new Size(81, 21);
             label13.TabIndex = 9;
             label13.Text = "Виробник";
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(218, 158);
+            textBox8.Location = new Point(370, 147);
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(100, 23);
+            textBox8.Size = new Size(157, 29);
             textBox8.TabIndex = 6;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(147, 158);
+            label15.Location = new Point(283, 147);
             label15.Name = "label15";
-            label15.Size = new Size(32, 15);
+            label15.Size = new Size(43, 21);
             label15.TabIndex = 5;
             label15.Text = "Ціна";
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(218, 129);
+            textBox9.Location = new Point(370, 118);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(100, 23);
+            textBox9.Size = new Size(157, 29);
             textBox9.TabIndex = 4;
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(147, 129);
+            label16.Location = new Point(283, 118);
             label16.Name = "label16";
-            label16.Size = new Size(36, 15);
+            label16.Size = new Size(47, 21);
             label16.TabIndex = 3;
             label16.Text = "Опис";
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(218, 100);
+            textBox10.Location = new Point(370, 89);
             textBox10.Name = "textBox10";
-            textBox10.Size = new Size(100, 23);
+            textBox10.Size = new Size(157, 29);
             textBox10.TabIndex = 2;
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(147, 100);
+            label17.Location = new Point(283, 89);
             label17.Name = "label17";
-            label17.Size = new Size(39, 15);
+            label17.Size = new Size(52, 21);
             label17.TabIndex = 1;
             label17.Text = "Назва";
             // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(385, 29);
+            label18.Location = new Point(382, 29);
             label18.Name = "label18";
-            label18.Size = new Size(68, 15);
+            label18.Size = new Size(89, 21);
             label18.TabIndex = 0;
             label18.Text = "Інструмент";
             // 
+            // pnlMaterial
+            // 
+            pnlMaterial.Controls.Add(button5);
+            pnlMaterial.Controls.Add(textBox5);
+            pnlMaterial.Controls.Add(label12);
+            pnlMaterial.Controls.Add(textBox3);
+            pnlMaterial.Controls.Add(label10);
+            pnlMaterial.Controls.Add(textBox2);
+            pnlMaterial.Controls.Add(label9);
+            pnlMaterial.Controls.Add(textBox1);
+            pnlMaterial.Controls.Add(label6);
+            pnlMaterial.Controls.Add(label5);
+            pnlMaterial.Font = new Font("Segoe UI", 12F);
+            pnlMaterial.Location = new Point(3, 35);
+            pnlMaterial.Name = "pnlMaterial";
+            pnlMaterial.Size = new Size(872, 339);
+            pnlMaterial.TabIndex = 5;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(370, 283);
+            button5.Name = "button5";
+            button5.Size = new Size(104, 31);
+            button5.TabIndex = 11;
+            button5.Text = "Створити";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(411, 201);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(155, 29);
+            textBox5.TabIndex = 10;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(279, 204);
+            label12.Name = "label12";
+            label12.Size = new Size(125, 21);
+            label12.TabIndex = 9;
+            label12.Text = "Одиниці виміру";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(411, 167);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(155, 29);
+            textBox3.TabIndex = 6;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(279, 170);
+            label10.Name = "label10";
+            label10.Size = new Size(43, 21);
+            label10.TabIndex = 5;
+            label10.Text = "Ціна";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(411, 132);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(155, 29);
+            textBox2.TabIndex = 4;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(279, 132);
+            label9.Name = "label9";
+            label9.Size = new Size(47, 21);
+            label9.TabIndex = 3;
+            label9.Text = "Опис";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(411, 97);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(155, 29);
+            textBox1.TabIndex = 2;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(279, 97);
+            label6.Name = "label6";
+            label6.Size = new Size(52, 21);
+            label6.TabIndex = 1;
+            label6.Text = "Назва";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(385, 17);
+            label5.Name = "label5";
+            label5.Size = new Size(76, 21);
+            label5.TabIndex = 0;
+            label5.Text = "Матеріал";
+            // 
+            // pnlTransport
+            // 
+            pnlTransport.Controls.Add(button9);
+            pnlTransport.Controls.Add(textBox11);
+            pnlTransport.Controls.Add(label19);
+            pnlTransport.Controls.Add(textBox13);
+            pnlTransport.Controls.Add(label21);
+            pnlTransport.Controls.Add(textBox14);
+            pnlTransport.Controls.Add(label22);
+            pnlTransport.Controls.Add(textBox15);
+            pnlTransport.Controls.Add(label23);
+            pnlTransport.Controls.Add(label24);
+            pnlTransport.Font = new Font("Segoe UI", 12F);
+            pnlTransport.Location = new Point(0, 35);
+            pnlTransport.Name = "pnlTransport";
+            pnlTransport.Size = new Size(872, 339);
+            pnlTransport.TabIndex = 13;
+            pnlTransport.Visible = false;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(370, 291);
+            button9.Name = "button9";
+            button9.Size = new Size(100, 33);
+            button9.TabIndex = 11;
+            button9.Text = "Створити";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
+            // textBox11
+            // 
+            textBox11.Location = new Point(373, 216);
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(146, 29);
+            textBox11.TabIndex = 10;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(269, 219);
+            label19.Name = "label19";
+            label19.Size = new Size(102, 21);
+            label19.TabIndex = 9;
+            label19.Text = "Номер знаку";
+            // 
+            // textBox13
+            // 
+            textBox13.Location = new Point(373, 184);
+            textBox13.Name = "textBox13";
+            textBox13.Size = new Size(146, 29);
+            textBox13.TabIndex = 6;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(269, 184);
+            label21.Name = "label21";
+            label21.Size = new Size(43, 21);
+            label21.TabIndex = 5;
+            label21.Text = "Ціна";
+            // 
+            // textBox14
+            // 
+            textBox14.Location = new Point(373, 155);
+            textBox14.Name = "textBox14";
+            textBox14.Size = new Size(146, 29);
+            textBox14.TabIndex = 4;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(269, 155);
+            label22.Name = "label22";
+            label22.Size = new Size(47, 21);
+            label22.TabIndex = 3;
+            label22.Text = "Опис";
+            // 
+            // textBox15
+            // 
+            textBox15.Location = new Point(373, 126);
+            textBox15.Name = "textBox15";
+            textBox15.Size = new Size(146, 29);
+            textBox15.TabIndex = 2;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(269, 126);
+            label23.Name = "label23";
+            label23.Size = new Size(52, 21);
+            label23.TabIndex = 1;
+            label23.Text = "Назва";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(385, 29);
+            label24.Name = "label24";
+            label24.Size = new Size(85, 21);
+            label24.TabIndex = 0;
+            label24.Text = "Транспорт";
+            // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(label14);
             tabPage4.Controls.Add(comboBox4);
             tabPage4.Controls.Add(label11);
             tabPage4.Controls.Add(textBox4);
@@ -791,36 +795,50 @@
             tabPage4.Text = "Склад";
             tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 12F);
+            label14.Location = new Point(394, 17);
+            label14.Name = "label14";
+            label14.Size = new Size(53, 21);
+            label14.TabIndex = 6;
+            label14.Text = "Склад";
+            // 
             // comboBox4
             // 
+            comboBox4.Font = new Font("Segoe UI", 12F);
             comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(158, 150);
+            comboBox4.Location = new Point(319, 137);
             comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(173, 23);
+            comboBox4.Size = new Size(203, 29);
             comboBox4.TabIndex = 5;
             comboBox4.SelectedValueChanged += comboBox4_SelectedValueChanged;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(382, 150);
+            label11.Font = new Font("Segoe UI", 12F);
+            label11.Location = new Point(319, 175);
             label11.Name = "label11";
-            label11.Size = new Size(56, 15);
+            label11.Size = new Size(73, 21);
             label11.TabIndex = 4;
             label11.Text = "Кількість";
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(549, 150);
+            textBox4.Font = new Font("Segoe UI", 12F);
+            textBox4.Location = new Point(422, 172);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
+            textBox4.Size = new Size(100, 29);
             textBox4.TabIndex = 3;
             // 
             // button14
             // 
-            button14.Location = new Point(489, 198);
+            button14.Font = new Font("Segoe UI", 12F);
+            button14.Location = new Point(431, 238);
             button14.Name = "button14";
-            button14.Size = new Size(75, 23);
+            button14.Size = new Size(95, 37);
             button14.TabIndex = 2;
             button14.Text = "Списати";
             button14.UseVisualStyleBackColor = true;
@@ -828,9 +846,10 @@
             // 
             // button13
             // 
-            button13.Location = new Point(382, 198);
+            button13.Font = new Font("Segoe UI", 12F);
+            button13.Location = new Point(319, 238);
             button13.Name = "button13";
-            button13.Size = new Size(75, 23);
+            button13.Size = new Size(106, 37);
             button13.TabIndex = 1;
             button13.Text = "Додати";
             button13.UseVisualStyleBackColor = true;
@@ -839,7 +858,23 @@
             // dataGridView4
             // 
             dataGridView4.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView4.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView4.Dock = DockStyle.Bottom;
             dataGridView4.Location = new Point(0, 367);
             dataGridView4.Name = "dataGridView4";
@@ -853,7 +888,7 @@
             ClientSize = new Size(886, 636);
             Controls.Add(tabControl1);
             Name = "InsertData";
-            Text = "InsertData";
+            Text = "Додавання даних";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
@@ -863,13 +898,13 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            pnlMaterial.ResumeLayout(false);
-            pnlMaterial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            pnlTransport.ResumeLayout(false);
-            pnlTransport.PerformLayout();
             pnlTools.ResumeLayout(false);
             pnlTools.PerformLayout();
+            pnlMaterial.ResumeLayout(false);
+            pnlMaterial.PerformLayout();
+            pnlTransport.ResumeLayout(false);
+            pnlTransport.PerformLayout();
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
@@ -896,7 +931,6 @@
         private Label label4;
         private ComboBox comboBox2;
         private Panel pnlMaterial;
-        private Button button4;
         private TextBox textBox2;
         private Label label9;
         private TextBox textBox1;
@@ -953,5 +987,6 @@
         private TextBox textBox4;
         private Button button14;
         private Button button13;
+        private Label label14;
     }
 }
