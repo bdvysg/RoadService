@@ -1,9 +1,5 @@
-
-
-using RoadService.Classes;
 using RoadService.Forms;
 using RoadService.Repository;
-using System.Security.AccessControl;
 using Task = RoadService.Classes.Task;
 
 namespace RoadService
@@ -61,13 +57,24 @@ namespace RoadService
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                Task selectedObject = unitOfWork.Task.Get(u=> u.Name == dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Task selectedObject = unitOfWork.Task.Get(u => u.Name == dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
                 if (selectedObject != null)
                 {
                     CloseTask form = new CloseTask(selectedObject);
                     form.Show();
                 }
             }
+        }
+
+        private void âèäàëèòèToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Task task = unitOfWork.Task.Get(t => t.Name == dgv.CurrentRow.Cells[0].Value.ToString());
+            if(task != null)
+            {
+                unitOfWork.Task.Remove(task);
+                unitOfWork.Save();
+            }
+            Refresh();
         }
     }
 }

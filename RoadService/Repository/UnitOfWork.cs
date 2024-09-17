@@ -1,5 +1,4 @@
 ﻿using RoadService.Classes;
-using RoadService.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Windows.Forms;
 
 namespace RoadService.Repository
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork
     {
         public Repository<Address> Address {  get; private set; }
         public Repository<User> Users { get; private set; }

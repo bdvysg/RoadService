@@ -817,13 +817,13 @@
             // 
             // label11
             // 
-            label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 12F);
-            label11.Location = new Point(319, 175);
+            label11.Location = new Point(260, 175);
             label11.Name = "label11";
-            label11.Size = new Size(73, 21);
+            label11.Size = new Size(156, 21);
             label11.TabIndex = 4;
             label11.Text = "Кількість";
+            label11.TextAlign = ContentAlignment.MiddleRight;
             // 
             // textBox4
             // 

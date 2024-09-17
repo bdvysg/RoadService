@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RoadService.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ using System.Windows.Forms;
 
 namespace RoadService.Repository
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> where T : class
     {
         private readonly RoadServiceDBContext _dbContext;
         internal DbSet<T> dbSet;
