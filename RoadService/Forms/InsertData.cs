@@ -8,10 +8,6 @@ namespace RoadService.Forms
     public partial class InsertData : Form
     {
         private UnitOfWork unitOfWork;
-        private AddressList addressList;
-        private ResourceTimeTable resourceTimeTable;
-        private EmployeeTimeTable employeeTimeTable;
-        private Task task;
         private List<Employee> employees;
         private List<Resource> resources;
         private List<Stock> stocks;
@@ -20,27 +16,16 @@ namespace RoadService.Forms
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork(new RoadServiceDBContext());
-            addressList = new AddressList(unitOfWork);
-            task = new Task();
 
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker1.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
-            dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
+            DateManager.SetUpDateTimePicker(dtpETT);
+            DateManager.SetUpDateTimePicker(dtp2ETT);
+            DateManager.SetUpDateTimePicker(dtp2ResTT);
+            DateManager.SetUpDateTimePicker(dtp1ResTT);
 
-            dateTimePicker3.Format = DateTimePickerFormat.Custom;
-            dateTimePicker3.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker4.Format = DateTimePickerFormat.Custom;
-            dateTimePicker4.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker3.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
-            dateTimePicker4.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
-
-            comboBox2.Items.Add("Матеріал");
-            comboBox2.Items.Add("Інструмент");
-            comboBox2.Items.Add("Транспорт");
-            comboBox2.SelectedIndex = 0;
+            cmbTypeRes.Items.Add("Матеріал");
+            cmbTypeRes.Items.Add("Інструмент");
+            cmbTypeRes.Items.Add("Транспорт");
+            cmbTypeRes.SelectedIndex = 0;
 
             tabControl1.TabPages.Remove(tabPage1);
             tabControl1.TabPages.Remove(tabPage3);
@@ -54,7 +39,7 @@ namespace RoadService.Forms
         {
             employees = unitOfWork.Employee.GetAll().ToList();
 
-            comboBox1.Items.AddRange(employees.Where(u => u.Position == "Дорожній працівник").ToArray());
+            cmbEmpTT.Items.AddRange(employees.Where(u => u.Position == "Дорожній працівник").ToArray());
         }
 
         public void LoadResources()
@@ -62,35 +47,35 @@ namespace RoadService.Forms
             resources = unitOfWork.Resource.GetAll().ToList();
             stocks = unitOfWork.Stock.GetAll(includeProperties: "Resource").ToList();
 
-            comboBox3.Items.Clear();
-            comboBox4.Items.Clear();
+            cmbResTT.Items.Clear();
+            cmbRes.Items.Clear();
 
-            comboBox3.Items.AddRange(resources.ToArray());
-            comboBox4.Items.AddRange(resources.ToArray());
+            cmbResTT.Items.AddRange(resources.ToArray());
+            cmbRes.Items.AddRange(resources.ToArray());
 
-            dataGridView4.DataSource = stocks;
-            dataGridView4.Columns[0].Visible = false;
-            dataGridView4.Columns[1].Visible = false;
-            dataGridView4.Columns[2].HeaderText = "Ресурс";
-            dataGridView4.Columns[3].HeaderText = "Кількість";
+            dgvStock.DataSource = stocks;
+            dgvStock.Columns[0].Visible = false;
+            dgvStock.Columns[1].Visible = false;
+            dgvStock.Columns[2].HeaderText = "Ресурс";
+            dgvStock.Columns[3].HeaderText = "Кількість";
 
 
         }
 
-        private void ResfreshDgv2() 
+        private void ResfreshDgv2()
         {
             var resources = unitOfWork.Resource.GetAll();
-            if (comboBox2.SelectedIndex == 0)
+            if (cmbTypeRes.SelectedIndex == 0)
             {
-                dataGridView2.DataSource = resources.OfType<Material>().ToList();
+                dgvRes.DataSource = resources.OfType<Material>().ToList();
             }
-            if (comboBox2.SelectedIndex == 1)
+            if (cmbTypeRes.SelectedIndex == 1)
             {
-                dataGridView2.DataSource = resources.OfType<Tool>().ToList();
+                dgvRes.DataSource = resources.OfType<Tool>().ToList();
             }
-            if (comboBox2.SelectedIndex == 2)
+            if (cmbTypeRes.SelectedIndex == 2)
             {
-                dataGridView2.DataSource = resources.OfType<Transport>().ToList();
+                dgvRes.DataSource = resources.OfType<Transport>().ToList();
             }
         }
 
@@ -102,9 +87,9 @@ namespace RoadService.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             EmployeeTimeTableItem item = new EmployeeTimeTableItem();
-            item.TimeStart = dateTimePicker1.Value;
-            item.TimeEnd = dateTimePicker2.Value;
-            item.EmployeeId = ((Employee)comboBox1.SelectedItem).Id;
+            item.TimeStart = dtpETT.Value;
+            item.TimeEnd = dtp2ETT.Value;
+            item.EmployeeId = ((Employee)cmbEmpTT.SelectedItem).Id;
             item.Id = 0;
 
             unitOfWork.EmployeeTimeTableItem.Add(item);
@@ -113,7 +98,7 @@ namespace RoadService.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = unitOfWork.EmployeeTimeTableItem.GetAll();
+            dgvEmpTT.DataSource = unitOfWork.EmployeeTimeTableItem.GetAll();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -136,7 +121,7 @@ namespace RoadService.Forms
 
         private void button6_Click(object sender, EventArgs e)
         {
-            label3.Text = unitOfWork.Resource.GetAll().Count().ToString();
+            lblCountRes.Text = unitOfWork.Resource.GetAll().Count().ToString();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -144,21 +129,21 @@ namespace RoadService.Forms
             ResfreshDgv2();
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbTypeRes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox2.SelectedIndex == 0)
+            if (cmbTypeRes.SelectedIndex == 0)
             {
                 pnlMaterial.Visible = true;
                 pnlTools.Visible = false;
                 pnlTransport.Visible = false;
             }
-            if (comboBox2.SelectedIndex == 1)
+            if (cmbTypeRes.SelectedIndex == 1)
             {
                 pnlMaterial.Visible = false;
                 pnlTools.Visible = true;
                 pnlTransport.Visible = false;
             }
-            if (comboBox2.SelectedIndex == 2)
+            if (cmbTypeRes.SelectedIndex == 2)
             {
                 pnlMaterial.Visible = false;
                 pnlTools.Visible = false;
@@ -171,18 +156,18 @@ namespace RoadService.Forms
         {
             Tool tool = new Tool();
             tool.Id = 0;
-            tool.Name = textBox10.Text;
-            tool.Description = textBox9.Text;
-            tool.Price = decimal.Parse(textBox8.Text);
-            tool.Manufacturer = textBox6.Text;
+            tool.Name = txtBName.Text;
+            tool.Description = txtBDesc.Text;
+            tool.Price = decimal.Parse(txtBPrice.Text);
+            tool.Manufacturer = txtBManuf.Text;
 
             unitOfWork.Resource.Add(tool);
             unitOfWork.Save();
 
-            textBox10.Clear();
-            textBox9.Clear();
-            textBox8.Clear();
-            textBox6.Clear();
+            txtBName.Clear();
+            txtBDesc.Clear();
+            txtBPrice.Clear();
+            txtBManuf.Clear();
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -211,12 +196,12 @@ namespace RoadService.Forms
         private void button11_Click(object sender, EventArgs e)
         {
             ResourceTimeTableItem item = new ResourceTimeTableItem();
-            item.TimeStart = dateTimePicker4.Value;
-            item.TimeEnd = dateTimePicker3.Value;
-            item.ResourceId = ((Resource)comboBox3.SelectedItem).Id;
+            item.TimeStart = dtp1ResTT.Value;
+            item.TimeEnd = dtp2ResTT.Value;
+            item.ResourceId = ((Resource)cmbResTT.SelectedItem).Id;
             item.Id = 0;
 
-            if (int.TryParse(textBox16.Text, out var num))
+            if (int.TryParse(txtBResTTCount.Text, out var num))
             {
                 item.Count = num;
             }
@@ -231,23 +216,19 @@ namespace RoadService.Forms
 
         private void button10_Click(object sender, EventArgs e)
         {
-            dataGridView3.DataSource = unitOfWork.ResourceTimeTableItem.GetAll();
+            dgvResTT.DataSource = unitOfWork.ResourceTimeTableItem.GetAll();
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button13_Click(object sender, EventArgs e)
         {
             int num = 0;
 
-            if (int.TryParse(textBox4.Text, out num))
+            if (int.TryParse(txtBCount.Text, out num))
             {
-                if (unitOfWork.Stock.GetAll().Select(u => u.ResourceId).Contains((comboBox4.SelectedItem as Resource).Id))
+                if (unitOfWork.Stock.GetAll().Select(u => u.ResourceId).Contains((cmbRes.SelectedItem as Resource).Id))
                 {
-                    Stock item = unitOfWork.Stock.GetAll().First(u => u.ResourceId == (comboBox4.SelectedItem as Resource).Id);
+                    Stock item = unitOfWork.Stock.GetAll().First(u => u.ResourceId == (cmbRes.SelectedItem as Resource).Id);
                     item.Count += num;
                     unitOfWork.Stock.Update(item);
                 }
@@ -256,8 +237,8 @@ namespace RoadService.Forms
                     unitOfWork.Stock.Add(new Stock
                     {
                         Id = 0,
-                        ResourceId = (comboBox4.SelectedItem as Resource).Id,
-                        Resource = comboBox4.SelectedItem as Resource,
+                        ResourceId = (cmbRes.SelectedItem as Resource).Id,
+                        Resource = cmbRes.SelectedItem as Resource,
                         Count = num
                     });
                 }
@@ -271,11 +252,11 @@ namespace RoadService.Forms
         {
             int num = 0;
 
-            if (int.TryParse(textBox4.Text, out num))
+            if (int.TryParse(txtBCount.Text, out num))
             {
-                if (unitOfWork.Stock.GetAll().Select(u => u.ResourceId).Contains((comboBox4.SelectedItem as Resource).Id))
+                if (unitOfWork.Stock.GetAll().Select(u => u.ResourceId).Contains((cmbRes.SelectedItem as Resource).Id))
                 {
-                    Stock item = unitOfWork.Stock.GetAll().First(u => u.ResourceId == (comboBox4.SelectedItem as Resource).Id);
+                    Stock item = unitOfWork.Stock.GetAll().First(u => u.ResourceId == (cmbRes.SelectedItem as Resource).Id);
                     item.Count -= num;
                     if (item.Count <= 0)
                     {
@@ -298,9 +279,9 @@ namespace RoadService.Forms
 
         private void comboBox4_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(comboBox4.SelectedItem is Material)
+            if (cmbRes.SelectedItem is Material)
             {
-                label11.Text = "Кількість ( " + (comboBox4.SelectedItem as Material).UnitOfMeasure + " )";
+                label11.Text = "Кількість ( " + (cmbRes.SelectedItem as Material).UnitOfMeasure + " )";
             }
             else
             {

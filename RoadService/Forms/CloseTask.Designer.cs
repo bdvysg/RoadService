@@ -28,106 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel1 = new Panel();
-            dataGridView2 = new DataGridView();
-            dataGridView1 = new DataGridView();
-            button6 = new Button();
-            richTextBox1 = new RichTextBox();
+            dgv2 = new DataGridView();
+            dgv1 = new DataGridView();
+            btnCalc = new Button();
+            txtDesc = new RichTextBox();
             label9 = new Label();
-            textBox4 = new TextBox();
-            button4 = new Button();
-            button2 = new Button();
-            dateTimePicker2 = new DateTimePicker();
+            txtActualCount = new TextBox();
+            btnAddRess = new Button();
+            btnCLose = new Button();
+            dtp2 = new DateTimePicker();
             label8 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dtp1 = new DateTimePicker();
             label7 = new Label();
-            comboBox2 = new ComboBox();
+            cmbUsedRes = new ComboBox();
             label6 = new Label();
-            textBox3 = new TextBox();
+            txtAddress = new TextBox();
             label4 = new Label();
-            textBox1 = new TextBox();
+            txtName = new TextBox();
             label2 = new Label();
             label1 = new Label();
             label5 = new Label();
-            textBox2 = new TextBox();
+            txtPlannedCount = new TextBox();
             label11 = new Label();
-            textBox5 = new TextBox();
+            txtPlannedPrice = new TextBox();
             label12 = new Label();
-            textBox6 = new TextBox();
+            txtActualPrice = new TextBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(dataGridView2);
-            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(dgv2);
+            panel1.Controls.Add(dgv1);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 481);
             panel1.Name = "panel1";
             panel1.Size = new Size(983, 228);
             panel1.TabIndex = 0;
             // 
-            // dataGridView2
+            // dgv2
             // 
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView2.Dock = DockStyle.Fill;
-            dataGridView2.Location = new Point(489, 0);
-            dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView2.Size = new Size(494, 228);
-            dataGridView2.TabIndex = 1;
+            dgv2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgv2.DefaultCellStyle = dataGridViewCellStyle3;
+            dgv2.Dock = DockStyle.Fill;
+            dgv2.Location = new Point(489, 0);
+            dgv2.Name = "dgv2";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgv2.Size = new Size(494, 228);
+            dgv2.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgv1
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.Dock = DockStyle.Left;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Size = new Size(489, 228);
-            dataGridView1.TabIndex = 0;
+            dgv1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv1.DefaultCellStyle = dataGridViewCellStyle3;
+            dgv1.Dock = DockStyle.Left;
+            dgv1.Location = new Point(0, 0);
+            dgv1.Name = "dgv1";
+            dgv1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgv1.Size = new Size(489, 228);
+            dgv1.TabIndex = 0;
             // 
-            // button6
+            // btnCalc
             // 
-            button6.Font = new Font("Segoe UI", 12F);
-            button6.Location = new Point(678, 286);
-            button6.Name = "button6";
-            button6.Size = new Size(121, 29);
-            button6.TabIndex = 47;
-            button6.Text = "Обчислити ціну";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            btnCalc.Font = new Font("Segoe UI", 12F);
+            btnCalc.Location = new Point(678, 286);
+            btnCalc.Name = "btnCalc";
+            btnCalc.Size = new Size(121, 29);
+            btnCalc.TabIndex = 47;
+            btnCalc.Text = "Обчислити ціну";
+            btnCalc.UseVisualStyleBackColor = true;
+            btnCalc.Click += button6_Click;
             // 
-            // richTextBox1
+            // txtDesc
             // 
-            richTextBox1.Font = new Font("Segoe UI", 12F);
-            richTextBox1.Location = new Point(84, 147);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(332, 82);
-            richTextBox1.TabIndex = 46;
-            richTextBox1.Text = "";
+            txtDesc.Font = new Font("Segoe UI", 12F);
+            txtDesc.Location = new Point(84, 147);
+            txtDesc.Name = "txtDesc";
+            txtDesc.Size = new Size(332, 82);
+            txtDesc.TabIndex = 46;
+            txtDesc.Text = "";
             // 
             // label9
             // 
@@ -140,45 +140,45 @@
             label9.Text = "Фактична кількість";
             label9.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // textBox4
+            // txtActualCount
             // 
-            textBox4.Font = new Font("Segoe UI", 12F);
-            textBox4.Location = new Point(700, 147);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(121, 29);
-            textBox4.TabIndex = 44;
-            textBox4.Text = "1";
+            txtActualCount.Font = new Font("Segoe UI", 12F);
+            txtActualCount.Location = new Point(700, 147);
+            txtActualCount.Name = "txtActualCount";
+            txtActualCount.Size = new Size(121, 29);
+            txtActualCount.TabIndex = 44;
+            txtActualCount.Text = "1";
             // 
-            // button4
+            // btnAddRess
             // 
-            button4.Font = new Font("Segoe UI", 12F);
-            button4.Location = new Point(827, 78);
-            button4.Name = "button4";
-            button4.Size = new Size(93, 29);
-            button4.TabIndex = 42;
-            button4.Text = "Додати";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnAddRess.Font = new Font("Segoe UI", 12F);
+            btnAddRess.Location = new Point(827, 78);
+            btnAddRess.Name = "btnAddRess";
+            btnAddRess.Size = new Size(93, 29);
+            btnAddRess.TabIndex = 42;
+            btnAddRess.Text = "Додати";
+            btnAddRess.UseVisualStyleBackColor = true;
+            btnAddRess.Click += button4_Click;
             // 
-            // button2
+            // btnCLose
             // 
-            button2.Font = new Font("Segoe UI", 12F);
-            button2.Location = new Point(422, 425);
-            button2.Name = "button2";
-            button2.Size = new Size(138, 31);
-            button2.TabIndex = 40;
-            button2.Text = "Закрити завдання";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnCLose.Font = new Font("Segoe UI", 12F);
+            btnCLose.Location = new Point(422, 425);
+            btnCLose.Name = "btnCLose";
+            btnCLose.Size = new Size(138, 31);
+            btnCLose.TabIndex = 40;
+            btnCLose.Text = "Закрити завдання";
+            btnCLose.UseVisualStyleBackColor = true;
+            btnCLose.Click += button2_Click;
             // 
-            // dateTimePicker2
+            // dtp2
             // 
-            dateTimePicker2.Enabled = false;
-            dateTimePicker2.Font = new Font("Segoe UI", 12F);
-            dateTimePicker2.Location = new Point(202, 280);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(214, 29);
-            dateTimePicker2.TabIndex = 38;
+            dtp2.Enabled = false;
+            dtp2.Font = new Font("Segoe UI", 12F);
+            dtp2.Location = new Point(202, 280);
+            dtp2.Name = "dtp2";
+            dtp2.Size = new Size(214, 29);
+            dtp2.TabIndex = 38;
             // 
             // label8
             // 
@@ -190,14 +190,14 @@
             label8.TabIndex = 37;
             label8.Text = "Дата кінця";
             // 
-            // dateTimePicker1
+            // dtp1
             // 
-            dateTimePicker1.Enabled = false;
-            dateTimePicker1.Font = new Font("Segoe UI", 12F);
-            dateTimePicker1.Location = new Point(202, 245);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(214, 29);
-            dateTimePicker1.TabIndex = 36;
+            dtp1.Enabled = false;
+            dtp1.Font = new Font("Segoe UI", 12F);
+            dtp1.Location = new Point(202, 245);
+            dtp1.Name = "dtp1";
+            dtp1.Size = new Size(214, 29);
+            dtp1.TabIndex = 36;
             // 
             // label7
             // 
@@ -209,15 +209,15 @@
             label7.TabIndex = 35;
             label7.Text = "Дата початку";
             // 
-            // comboBox2
+            // cmbUsedRes
             // 
-            comboBox2.Font = new Font("Segoe UI", 12F);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(700, 78);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 29);
-            comboBox2.TabIndex = 34;
-            comboBox2.SelectedValueChanged += comboBox2_SelectedValueChanged;
+            cmbUsedRes.Font = new Font("Segoe UI", 12F);
+            cmbUsedRes.FormattingEnabled = true;
+            cmbUsedRes.Location = new Point(700, 78);
+            cmbUsedRes.Name = "cmbUsedRes";
+            cmbUsedRes.Size = new Size(121, 29);
+            cmbUsedRes.TabIndex = 34;
+            cmbUsedRes.SelectedValueChanged += comboBox2_SelectedValueChanged;
             // 
             // label6
             // 
@@ -229,13 +229,13 @@
             label6.TabIndex = 33;
             label6.Text = "Використані ресурси";
             // 
-            // textBox3
+            // txtAddress
             // 
-            textBox3.Font = new Font("Segoe UI", 12F);
-            textBox3.Location = new Point(154, 107);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(262, 29);
-            textBox3.TabIndex = 30;
+            txtAddress.Font = new Font("Segoe UI", 12F);
+            txtAddress.Location = new Point(154, 107);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(262, 29);
+            txtAddress.TabIndex = 30;
             // 
             // label4
             // 
@@ -247,13 +247,13 @@
             label4.TabIndex = 29;
             label4.Text = "Адреса";
             // 
-            // textBox1
+            // txtName
             // 
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(154, 70);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(262, 29);
-            textBox1.TabIndex = 27;
+            txtName.Font = new Font("Segoe UI", 12F);
+            txtName.Location = new Point(154, 70);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(262, 29);
+            txtName.TabIndex = 27;
             // 
             // label2
             // 
@@ -286,15 +286,15 @@
             label5.Text = "Запланована кількість";
             label5.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // txtPlannedCount
             // 
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.Location = new Point(700, 112);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(121, 29);
-            textBox2.TabIndex = 49;
-            textBox2.Text = "1";
+            txtPlannedCount.Font = new Font("Segoe UI", 12F);
+            txtPlannedCount.Location = new Point(700, 112);
+            txtPlannedCount.Name = "txtPlannedCount";
+            txtPlannedCount.ReadOnly = true;
+            txtPlannedCount.Size = new Size(121, 29);
+            txtPlannedCount.TabIndex = 49;
+            txtPlannedCount.Text = "1";
             // 
             // label11
             // 
@@ -307,15 +307,15 @@
             label11.Text = "Запланована ціна";
             label11.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // textBox5
+            // txtPlannedPrice
             // 
-            textBox5.Font = new Font("Segoe UI", 12F);
-            textBox5.Location = new Point(678, 214);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(121, 29);
-            textBox5.TabIndex = 51;
-            textBox5.Text = "1";
+            txtPlannedPrice.Font = new Font("Segoe UI", 12F);
+            txtPlannedPrice.Location = new Point(678, 214);
+            txtPlannedPrice.Name = "txtPlannedPrice";
+            txtPlannedPrice.ReadOnly = true;
+            txtPlannedPrice.Size = new Size(121, 29);
+            txtPlannedPrice.TabIndex = 51;
+            txtPlannedPrice.Text = "1";
             // 
             // label12
             // 
@@ -328,15 +328,15 @@
             label12.Text = "Фактична ціна";
             label12.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // textBox6
+            // txtActualPrice
             // 
-            textBox6.Font = new Font("Segoe UI", 12F);
-            textBox6.Location = new Point(678, 249);
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.Size = new Size(121, 29);
-            textBox6.TabIndex = 53;
-            textBox6.Text = "1";
+            txtActualPrice.Font = new Font("Segoe UI", 12F);
+            txtActualPrice.Location = new Point(678, 249);
+            txtActualPrice.Name = "txtActualPrice";
+            txtActualPrice.ReadOnly = true;
+            txtActualPrice.Size = new Size(121, 29);
+            txtActualPrice.TabIndex = 53;
+            txtActualPrice.Text = "1";
             // 
             // CloseTask
             // 
@@ -344,34 +344,34 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(983, 709);
             Controls.Add(label12);
-            Controls.Add(textBox6);
+            Controls.Add(txtActualPrice);
             Controls.Add(label11);
-            Controls.Add(textBox5);
+            Controls.Add(txtPlannedPrice);
             Controls.Add(label5);
-            Controls.Add(textBox2);
-            Controls.Add(button6);
-            Controls.Add(richTextBox1);
+            Controls.Add(txtPlannedCount);
+            Controls.Add(btnCalc);
+            Controls.Add(txtDesc);
             Controls.Add(label9);
-            Controls.Add(textBox4);
-            Controls.Add(button4);
-            Controls.Add(button2);
-            Controls.Add(dateTimePicker2);
+            Controls.Add(txtActualCount);
+            Controls.Add(btnAddRess);
+            Controls.Add(btnCLose);
+            Controls.Add(dtp2);
             Controls.Add(label8);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtp1);
             Controls.Add(label7);
-            Controls.Add(comboBox2);
+            Controls.Add(cmbUsedRes);
             Controls.Add(label6);
-            Controls.Add(textBox3);
+            Controls.Add(txtAddress);
             Controls.Add(label4);
-            Controls.Add(textBox1);
+            Controls.Add(txtName);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
             Name = "CloseTask";
             Text = "CloseTask";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -379,30 +379,30 @@
         #endregion
 
         private Panel panel1;
-        private DataGridView dataGridView2;
-        private DataGridView dataGridView1;
-        private Button button6;
-        private RichTextBox richTextBox1;
+        private DataGridView dgv2;
+        private DataGridView dgv1;
+        private Button btnCalc;
+        private RichTextBox txtDesc;
         private Label label9;
-        private TextBox textBox4;
-        private Button button4;
-        private Button button2;
-        private DateTimePicker dateTimePicker2;
+        private TextBox txtActualCount;
+        private Button btnAddRess;
+        private Button btnCLose;
+        private DateTimePicker dtp2;
         private Label label8;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtp1;
         private Label label7;
-        private ComboBox comboBox2;
+        private ComboBox cmbUsedRes;
         private Label label6;
-        private TextBox textBox3;
+        private TextBox txtAddress;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtName;
         private Label label2;
         private Label label1;
         private Label label5;
-        private TextBox textBox2;
+        private TextBox txtPlannedCount;
         private Label label11;
-        private TextBox textBox5;
+        private TextBox txtPlannedPrice;
         private Label label12;
-        private TextBox textBox6;
+        private TextBox txtActualPrice;
     }
 }

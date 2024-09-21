@@ -22,23 +22,19 @@ namespace RoadService.Forms
             resourceTimeTable = new ResourceTimeTable(unitOfWork);
             employeeTimeTable = new EmployeeTimeTable(unitOfWork);
 
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker1.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
-            dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
+            DateManager.SetUpDateTimePicker(dtp1);
+            DateManager.SetUpDateTimePicker(dtp2);
 
             this.task = task;
-            textBox1.Text = task.Name;
-            textBox3.Text = task.Address;
-            textBox5.Text = task.PlannedPrice.ToString();
-            richTextBox1.Text = task.Description;
-            dateTimePicker1.Value = task.TimeStart;
-            dateTimePicker2.Value = task.TimeEnd;
+            txtName.Text = task.Name;
+            txtAddress.Text = task.Address;
+            txtPlannedPrice.Text = task.PlannedPrice.ToString();
+            txtDesc.Text = task.Description;
+            dtp1.Value = task.TimeStart;
+            dtp2.Value = task.TimeEnd;
 
             var res = task.PlannedResources.Select(u => unitOfWork.Resource.Get(e => e.Id == u.Id)).Where(u => u is Material).Distinct().ToArray();
-            comboBox2.Items.AddRange(res);
+            cmbUsedRes.Items.AddRange(res);
 
             task.ActualResources = task.PlannedResources.Select(u => unitOfWork.Resource.Get(e => e.Id == u.Id)).Where(u => u is not Material).ToList();
 
@@ -47,7 +43,7 @@ namespace RoadService.Forms
 
         public void UpdateTables()
         {
-            dataGridView1.DataSource = task.Employees.Select(item => new
+            dgv1.DataSource = task.Employees.Select(item => new
             {
                 Імя = item.FirstName,
                 Прізвище = item.LastName,
@@ -55,7 +51,7 @@ namespace RoadService.Forms
                 Ставка = item.WagePerHour
             }).ToList();
 
-            dataGridView2.DataSource = task.PlannedResources.GroupBy(x => x.Name)
+            dgv2.DataSource = task.PlannedResources.GroupBy(x => x.Name)
                      .Select(group => new
                      {
                          Назва = group.Key,
@@ -73,40 +69,40 @@ namespace RoadService.Forms
                          Count = group.Count()
                      })
                      .ToList();
-            textBox2.Text = gropus.FirstOrDefault(x => x.Value == (comboBox2.SelectedItem as Resource).Id).Count.ToString();
-            textBox4.Text = textBox2.Text;
+            txtPlannedCount.Text = gropus.FirstOrDefault(x => x.Value == (cmbUsedRes.SelectedItem as Resource).Id).Count.ToString();
+            txtActualCount.Text = txtPlannedCount.Text;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             task.ActualPrice = Calc.GetActualPrice(task);
-            textBox6.Text = task.ActualPrice.ToString();
+            txtActualPrice.Text = task.ActualPrice.ToString();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int count = int.Parse(textBox4.Text);
-            textBox4.Text = textBox2.Text;
-            int max_count = unitOfWork.Stock.Get(u => u.Resource.Id == (comboBox2.SelectedItem as Resource).Id).Count;
+            int count = int.Parse(txtActualCount.Text);
+            txtActualCount.Text = txtPlannedCount.Text;
+            int max_count = unitOfWork.Stock.Get(u => u.Resource.Id == (cmbUsedRes.SelectedItem as Resource).Id).Count;
             var ress = unitOfWork.Resource.GetAll();
 
-            if (count > max_count + int.Parse(textBox4.Text))
+            if (count > max_count + int.Parse(txtActualCount.Text))
             {
-                MessageBox.Show($"На складі доступно лише {max_count - int.Parse(textBox4.Text)} одиниць!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"На складі доступно лише {max_count - int.Parse(txtActualCount.Text)} одиниць!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             for (int i = 0; i < count; i++)
             {
-                task.ActualResources.Add(ress.First(u => u.Id == (comboBox2.SelectedItem as Resource).Id));
+                task.ActualResources.Add(ress.First(u => u.Id == (cmbUsedRes.SelectedItem as Resource).Id));
             }
-            comboBox2.Items.Remove(comboBox2.SelectedItem as Resource);
+            cmbUsedRes.Items.Remove(cmbUsedRes.SelectedItem as Resource);
 
-            if (comboBox2.Items.Count == 0)
+            if (cmbUsedRes.Items.Count == 0)
             {
-                comboBox2.Text = string.Empty;
-                textBox2.Text = string.Empty;
-                textBox4.Text = string.Empty;
-                textBox4.ReadOnly = true;
+                cmbUsedRes.Text = string.Empty;
+                txtPlannedCount.Text = string.Empty;
+                txtActualCount.Text = string.Empty;
+                txtActualCount.ReadOnly = true;
             }
         }
 

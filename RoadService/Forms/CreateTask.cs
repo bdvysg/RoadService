@@ -36,12 +36,9 @@ namespace RoadService.Forms
             resourceTimeTable = new ResourceTimeTable(unitOfWork);
             employeeTimeTable = new EmployeeTimeTable(unitOfWork);
 
-            dtp1.Format = DateTimePickerFormat.Custom;
-            dtp1.CustomFormat = "dd.MM.yyyy HH:mm";
-            dpt2.Format = DateTimePickerFormat.Custom;
-            dpt2.CustomFormat = "dd.MM.yyyy HH:mm";
-            dtp1.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
-            dpt2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, 0, 0);
+            DateManager.SetUpDateTimePicker(dtp1);
+            DateManager.SetUpDateTimePicker(dpt2);
+
         }
 
         private void btnCheckAddress_Click(object sender, EventArgs e)
@@ -65,28 +62,10 @@ namespace RoadService.Forms
         private void btnFilter_Click(object sender, EventArgs e)
         {
             var date1 = dtp1.Value;
-            date1 = new DateTime(date1.Year, date1.Month, date1.Day, date1.Hour, 0, 0);
 
             var date2 = dpt2.Value;
-            date2 = new DateTime(date2.Year, date2.Month, date2.Day, date2.Hour, 0, 0);
 
-            if (DateTime.Now >= date1)
-            {
-                MessageBox.Show("Дата початку не може бути меншою або дорівнювати сьогодішній даті");
-                return;
-            }
-
-            if (DateTime.Now >= date2)
-            {
-                MessageBox.Show("Дата кінця не може бути меншою або дорівнювати сьогоднішній даті");
-                return;
-            }
-
-            if (date1 >= date2)
-            {
-                MessageBox.Show("Дата початку не може бути меншою або дорівнювати даті закінчення завдання");
-                return;
-            }
+            if (!DateManager.IsValidDate(date1, date2)) return;
 
 
             cmbEmployees.Items.Clear();
@@ -166,6 +145,37 @@ namespace RoadService.Forms
 
         }
 
+        private bool isValidTask()
+        {
+            if (string.IsNullOrEmpty(task.Name))
+            {
+                MessageBox.Show("Назва завдання не може бути пустою", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrEmpty(task.Description))
+            {
+                MessageBox.Show("Опис завдання не може бути пустим", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (task.Address == null)
+            {
+                MessageBox.Show("Адреса не підтверджена", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (task.TimeStart == null || task.TimeEnd == null)
+            {
+                MessageBox.Show("Підтвердіть обрану дату", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (task.PlannedPrice == null || task.PlannedPrice == 0)
+            {
+                MessageBox.Show("Запланована сума не розрахована", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             task.isClosed = false;
@@ -173,31 +183,7 @@ namespace RoadService.Forms
             task.Name = txtName.Text;
             task.Description = rtxtDescription.Text;
 
-            if (string.IsNullOrEmpty(task.Name))
-            {
-                MessageBox.Show("Назва завдання не може бути пустою", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (string.IsNullOrEmpty(task.Description))
-            {
-                MessageBox.Show("Опис завдання не може бути пустим", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (task.Address == null)
-            {
-                MessageBox.Show("Адреса не підтверджена", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (task.TimeStart == null || task.TimeEnd == null)
-            {
-                MessageBox.Show("Підтвердіть обрану дату", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (task.PlannedPrice == null || task.PlannedPrice == 0)
-            {
-                MessageBox.Show("Запланована сума не розрахована", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            if (!isValidTask()) return;
 
             foreach (var emp in task.Employees)
             {

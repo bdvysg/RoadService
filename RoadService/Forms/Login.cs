@@ -13,9 +13,12 @@ namespace RoadService
             unitOfWork = new UnitOfWork(new RoadServiceDBContext());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
+            var login = txtBLogin.Text.Trim();
+            var password = txtBPassword.Text.Trim();
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Логін або пароль не можуть бути пустими");
                 return;
@@ -23,7 +26,7 @@ namespace RoadService
 
             List<User> users = unitOfWork.Users.GetAll(includeProperties: "Employee").ToList();
 
-            if (users.Any(u => u.Username == textBox1.Text.Trim() && u.Password == textBox2.Text.Trim()))
+            if (users.Any(u => u.Username == login && u.Password == password))
             {
                 Main form = new Main();
                 form.Show();

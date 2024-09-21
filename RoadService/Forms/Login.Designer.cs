@@ -28,73 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            textBox2 = new TextBox();
+            btnLogin = new Button();
+            lblName = new Label();
+            txtBLogin = new TextBox();
+            lblPassword = new Label();
+            txtBPassword = new TextBox();
             SuspendLayout();
             // 
-            // button1
+            // btnLogin
             // 
-            button1.Font = new Font("Segoe UI", 14F);
-            button1.Location = new Point(327, 335);
-            button1.Name = "button1";
-            button1.Size = new Size(99, 35);
-            button1.TabIndex = 0;
-            button1.Text = "Увійти";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnLogin.Font = new Font("Segoe UI", 14F);
+            btnLogin.Location = new Point(327, 335);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(99, 35);
+            btnLogin.TabIndex = 0;
+            btnLogin.Text = "Увійти";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
-            // label1
+            // lblName
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(297, 83);
-            label1.Name = "label1";
-            label1.Size = new Size(158, 25);
-            label1.TabIndex = 1;
-            label1.Text = "Ім'я користувача";
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI", 14F);
+            lblName.Location = new Point(297, 83);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(158, 25);
+            lblName.TabIndex = 1;
+            lblName.Text = "Ім'я користувача";
             // 
-            // textBox1
+            // txtBLogin
             // 
-            textBox1.Font = new Font("Segoe UI", 14F);
-            textBox1.Location = new Point(326, 122);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 32);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "manager1";
+            txtBLogin.Font = new Font("Segoe UI", 14F);
+            txtBLogin.Location = new Point(326, 122);
+            txtBLogin.Name = "txtBLogin";
+            txtBLogin.Size = new Size(100, 32);
+            txtBLogin.TabIndex = 2;
+            txtBLogin.Text = "manager1";
             // 
-            // label2
+            // lblPassword
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14F);
-            label2.Location = new Point(337, 197);
-            label2.Name = "label2";
-            label2.Size = new Size(78, 25);
-            label2.TabIndex = 3;
-            label2.Text = "Пароль";
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Segoe UI", 14F);
+            lblPassword.Location = new Point(337, 197);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(78, 25);
+            lblPassword.TabIndex = 3;
+            lblPassword.Text = "Пароль";
             // 
-            // textBox2
+            // txtBPassword
             // 
-            textBox2.Font = new Font("Segoe UI", 14F);
-            textBox2.Location = new Point(326, 235);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(100, 32);
-            textBox2.TabIndex = 4;
-            textBox2.Text = "temp1212";
+            txtBPassword.Font = new Font("Segoe UI", 14F);
+            txtBPassword.Location = new Point(326, 235);
+            txtBPassword.Name = "txtBPassword";
+            txtBPassword.PasswordChar = '*';
+            txtBPassword.Size = new Size(100, 32);
+            txtBPassword.TabIndex = 4;
+            txtBPassword.Text = "temp1212";
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
-            Controls.Add(textBox1);
-            Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(txtBPassword);
+            Controls.Add(lblPassword);
+            Controls.Add(txtBLogin);
+            Controls.Add(lblName);
+            Controls.Add(btnLogin);
             Name = "Login";
             Text = "Вхід";
             ResumeLayout(false);
@@ -103,10 +103,10 @@
 
         #endregion
 
-        private Button button1;
-        private Label label1;
-        private TextBox textBox1;
-        private Label label2;
-        private TextBox textBox2;
+        private Button btnLogin;
+        private Label lblName;
+        private TextBox txtBLogin;
+        private Label lblPassword;
+        private TextBox txtBPassword;
     }
 }
